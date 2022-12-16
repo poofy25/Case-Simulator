@@ -17,7 +17,7 @@ body{
     align-items: center;
     box-sizing: border-box;
     background-color: blue;
-    width: 400px;
+    width: 500px;
     height: 200px;
     z-index: 2;
     overflow: hidden;
@@ -62,12 +62,18 @@ transition-property: transform;
     height: 75%;
     background-color: rgba(255, 0, 0,0);
     border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(44, 44, 44);
+    font-family: monospace;
+    font-size: 20px;
 }
 .Winner_Card{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(44, 44, 44);
     font-family: monospace;
     font-size: 20px;
     background-color: rgba(255, 0, 0,0.03);
