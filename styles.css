@@ -10,28 +10,36 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(36, 36, 126);
 }
 
 .ViewPort{
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    background-color: blue;
-    width: 500px;
-    height: 200px;
+    background-color: rgb(37, 37, 37);
+    width:  90vw;
+    aspect-ratio: 16/6;
     z-index: 2;
     overflow: hidden;
    
 }
-
+.ViewPortGradient{
+    width:  90vw;
+    aspect-ratio: 16/6;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.25) 100%);
+    z-index: 100;
+    position:absolute;
+}
 
 .Arrows{
     position:absolute;
     left: 50%;
-    width: 2px;
-    height: 200px;
-    background: rgb(121,9,9);
-background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(2,0,36,0) 50%, rgba(0,0,0,1) 95%);
+    width: 5px;
+    height: calc(34vw);
+    background: rgb(231,209,0);
+    background: linear-gradient(0deg, rgba(231,209,0,1) 0%, rgba(0,0,0,0) 50%, rgba(231,209,0,1) 100%);
     z-index: 10;
 }
 
@@ -40,7 +48,7 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(2,0,36,0) 50%, rgba(0,0
     flex-direction: row;
     width: fit-content;
       margin: auto;
-      gap: 10px;
+      gap: 2.5vw;
       justify-content:center;
 background-color: transparent;
 height: 30vh;
@@ -52,20 +60,21 @@ transition-property: transform;
 
 }
 .RollAnimation{
-    transition:cubic-bezier(0.12, 0.49, 0.42, 0.98) 6s transform;
+    transition:cubic-bezier(0.12, 0.5, 0.3, 1) 6s transform;
 }
 
 .Case-Card{
     box-sizing: border-box;
     display: inline-flex;
-    width:  200px;
-    height: 75%;
+    width:  35vw;
+    aspect-ratio: 16/12 ;
     background-color: rgba(255, 0, 0,0);
-    border: 1px solid white;
+    border: 1px solid rgb(75, 75, 75);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
-    color: rgb(44, 44, 44);
+    color: white;
     font-family: monospace;
     font-size: 20px;
 }
@@ -73,13 +82,50 @@ transition-property: transform;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(44, 44, 44);
+    color: white;
     font-family: monospace;
     font-size: 20px;
     background-color: rgba(255, 0, 0,0.03);
  
 }
+
+
+
+.PrizeIMG{
+    background: red;
+background: linear-gradient(140deg, rgba(226, 226, 226, 1) 0%, rgba(254,254,255) 40%);
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PrizeIMG > img {
+    height: 100%;
+}
+
+.PrizeRarity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    width: 100%;
+    height: 30%;
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
 .Open-Button{
   display: block;
   margin-top: 5vh;
 }
+
