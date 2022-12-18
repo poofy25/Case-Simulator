@@ -1,6 +1,6 @@
 "use strict";
 
-import JsonData from '/caseData.json' assert {type: 'json'};
+import JsonData from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
 
 const OpenButton = document.querySelector(".Open-Button")
 const CaseCards = document.querySelector(".Case-Container")
