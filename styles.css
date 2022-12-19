@@ -1,0 +1,336 @@
+html{
+    margin: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+body{
+    margin:0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(36, 36, 126);
+}
+
+
+
+.CaseListContainer{
+    background-color: aquamarine;
+    margin-top: 10vh;
+    width: 85vw;
+    height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+display: flex;
+}
+
+.CasesGrid{
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1vw;
+}
+.Case{
+    box-sizing: border-box;
+    display: inline-flex;
+    width:  12.5vw;
+    aspect-ratio: 9/7;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(75, 75, 75);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: gray;
+}
+
+.Case > img{
+    height: 100%;
+}
+
+
+
+
+.OpeningCaseContainer{
+    background-color: aquamarine;
+    margin-top: 10vh;
+    width: 85vw;
+    height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+   display: none;
+}
+.OpeningContainer{
+    background-color: rgb(22, 22, 22);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22.5vw;
+}
+.ViewPort{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgb(37, 37, 37);
+    width:  39.5vw;
+    height: 13.2vw;
+    aspect-ratio: 9/3;
+    z-index: 2;
+overflow: hidden;
+   
+}
+.ViewPortGradient{
+    width:  39.5vw;
+    aspect-ratio: 9/3;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.25) 100%);
+    z-index: 100;
+    position:absolute;
+}
+
+.Arrows{
+    position:absolute;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 13.2vw;
+    background: rgb(231,209,0);
+    background: linear-gradient(0deg, rgba(231,209,0,1) 0%, rgba(0,0,0,0) 50%, rgba(231,209,0,1) 100%);
+    z-index: 10;
+}
+
+.Case-Container{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+      margin: auto;
+      gap: 1vw;
+      justify-content:center;
+background-color: transparent;
+justify-content: center;
+align-items: center;
+z-index: 0;
+transition-property: transform;
+
+}
+.RollAnimation{
+    transition:cubic-bezier(0.12, 0.5, 0.3, 1) 6s transform;
+}
+
+.Case-Card{
+    box-sizing: border-box;
+    display: inline-flex;
+    width:  12.5vw;
+    aspect-ratio: 9/7;
+    background-color: rgba(255, 0, 0,0);
+    border: 1px solid rgb(75, 75, 75);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+.Winner_Card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    font-size: 20px;
+    background-color: rgba(255, 0, 0,0.03);
+ 
+}
+
+
+
+.PrizeIMG{
+    background: red;
+background: linear-gradient(140deg, rgba(226, 226, 226, 1) 0%, rgba(254,254,255) 40%);
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PrizeIMG > img {
+    height: 100%;
+}
+
+
+
+
+
+.PrizeRarity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    width: 100%;
+    height: 30%;
+    background-color: red;
+}
+
+
+
+
+
+
+.OpenCaseButtonContainer{
+    background-color: rgb(21, 21, 65);
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+align-items: center;
+}
+
+
+.Open-Button{
+  display: block;
+  margin: 0;
+}
+
+.CaseItemsContainer{
+    box-sizing: border-box;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 5vh;
+    width: 100%;
+    background-color: darkcyan;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1vw;
+    row-gap: 1vh;
+}
+
+.SkinItem{
+    width:  12.5vw;
+    aspect-ratio: 9/7;
+    background-color: red;
+}
+
+
+
+
+
+.PrizeIMG-Chance{
+    background: red;
+    background: linear-gradient(140deg, rgba(226, 226, 226, 1) 0%, rgba(254,254,255) 40%);
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.PrizeIMG-Chance > img {
+    height: 100%;
+}
+
+.PrizeRarity-Chance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    width: 100%;
+    height: 30%;
+    background-color: darkgoldenrod;
+}
+
+
+
+
+
+
+
+
+
+
+.PrizeContainer{
+    position: absolute;
+    top: 10vh;
+    z-index: 99;
+    width: 70vw;
+    aspect-ratio: 20/14;
+    background: rgb(38,38,38);
+    background: linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, rgba(33,40,66,1) 80%, rgba(35,43,76,1) 93%, rgba(43,52,91,0.9) 100%);
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.PrizeContainerName{
+ color: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-family:sans-serif;
+ font-weight: bold;
+ font-size: larger;
+    width: 100%;
+    height: 8%;
+}
+
+.PrizeContainerIMG{
+  border: 2px solid rgba(26, 27, 30 ,0.5);
+    width: 96%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.PrizeContainerIMG > img {
+   height: 100%;
+}
+.PrizeContainerContinue{
+    
+    width: 100%;
+    height: 18%;
+    box-sizing: border-box;
+    border-top: 5px solid rgb(27, 26, 26);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.PrizeContainerContinue > p {
+margin: 0.5rem;
+margin-top: 1rem;
+font-family:sans-serif;
+ font-weight: normal;
+ font-size: 1rem;
+ color: white;
+}
+
+.ContinueButton{
+    cursor: pointer;
+    width: 17.5%;
+    height: 32.5%;
+    font-family:sans-serif;
+ font-weight: normal;
+ font-size: 1rem;
+ color: white;
+ background: rgb(69,92,31);
+ border: none;
+background: linear-gradient(0deg, rgba(69,92,31,1) 0%, rgba(77,107,32,1) 50%, rgba(89,113,45,1) 100%);
+box-shadow: rgba(22,31,6, 1) 0px 1px 2px 0px, rgba(22,31,6, .5) 0px 2px 6px 2px;
+}
