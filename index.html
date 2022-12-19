@@ -2,14 +2,19 @@
 <html>
     <head>
         <title>Case Simulator</title>
+        <link rel="shortcut icon" href="#">
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
 
   <div class="CaseListContainer">
     <div class="CasesGrid">
-        <div class="Case"></div>
-    <div class="Case"></div>
+        <div class="Case" data-casename="CSGO_Weapon_Case"> 
+            <img src="PNGS/FirstCase/CSGO_Weapon_Case_IMG.png">
+            CSGO WEAPON CASE</div>
+    <div class="Case" data-casename="Chroma_3_Case">
+        <img src="PNGS/FirstCase/Chroma_3_Case_IMG.png">
+        CHROMA 3 CASE</div>
     </div>
   </div>
 
@@ -441,7 +446,16 @@
 
 </div>
 
-
+<div class="PrizeContainer">
+    <div class="PrizeContainerName">M4A1-S | Chantico's Fire</div>
+    <div class="PrizeContainerIMG">
+        <img src="PNGS/Cases/Chroma_3_Case/RED_m4a1_silencer_cu_m4a1s_soultaker.png" alt="">
+    </div>
+    <div class="PrizeContainerContinue">
+        <p>You got a new Item!</p>
+        <button class="ContinueButton">Continue</button>
+    </div>
+</div>
 
 
 
@@ -452,6 +466,8 @@
 
 
      <script  type="module" src="game.js">
+
      </script>
+    
     </body>
 </html>

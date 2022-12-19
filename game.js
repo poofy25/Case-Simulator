@@ -5,13 +5,20 @@
 const OpenButton = document.querySelector(".Open-Button")
 const CaseCards = document.querySelector(".Case-Container")
 const Winner_Card = document.querySelector(".Winner_Card")
+const Winner_CardIMG = document.querySelector(".Winner_Card img")
+const Winner_Card_Name = document.querySelector(".Winner_Card .PrizeRarity")
 const Cards = document.querySelectorAll(".Case-Card")
 const CardsRarityDOM = document.querySelectorAll(".PrizeRarity")
 const CardsPrizeIMG = document.querySelectorAll(".PrizeIMG img")
-const CardWidth = Winner_Card.offsetWidth;
+
 const ChanceSkins = document.querySelectorAll(".SkinItem")
 const ChanceCardsRarityDOM = document.querySelectorAll(".PrizeRarity-Chance")
 const ChanceCardsPrizeIMG = document.querySelectorAll(".PrizeIMG-Chance img")
+
+const PrizeContainer = document.querySelector(".PrizeContainer")
+const ContinueButton = document.querySelector(".ContinueButton")
+const PrizeContainerIMG = document.querySelector(".PrizeContainerIMG img")
+const PrizeContainerName = document.querySelector(".PrizeContainerName")
 let RandomPixel;
 
 
@@ -24,7 +31,7 @@ const api_url =
       "/caseData.json";
   
 // Defining async function
-async function getapi(url) {
+async function getapi(url , CaseNumber) {
     
     // Storing response
     const response = await fetch(url);
@@ -32,14 +39,15 @@ async function getapi(url) {
     // Storing data in form of JSON
     var JsonData = await response.json();
     console.log(JsonData);
+    console.log(CaseNumber);
    
-
+    const CardWidth = Winner_Card.offsetWidth;
 
 
 
 function loadChanceSkins (Case) {
-
-const CaseInfo = Case
+    console.log(JsonData.Cases[CaseNumber])
+const CaseInfo = JsonData.Cases[CaseNumber]
 let CaseRaritiesArray = CaseInfo.Rarities;
 let CaseOdds = CaseInfo.Settings.CaseOdds;
 let CaseSkinsName = CaseInfo.SkinsName;
@@ -90,6 +98,9 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
     if (i >= TotalSkins){
         ChanceSkins[i].style.display = `none`
     }
+    if (i < TotalSkins){
+        ChanceSkins[i].style.display = `block`
+    }
 
     
 
@@ -101,7 +112,7 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
 
 console.log(TotalSkins)
 }
-
+loadChanceSkins(JsonData.Cases.CaseName)
 
 
 
@@ -181,7 +192,7 @@ function setPrizeStyles(PrizeRarity , PrizeImage){
 
 } else if (CurrentRarity == "Blue") {
 
-    PrizeRarity.style.backgroundColor = `Blue`
+    PrizeRarity.style.backgroundColor = `rgba(37,60,134,1)`
     PrizeRarity.textContent = CaseSkinsName.BlueRarity[RandomBlueItem]
     PrizeImage.src = CaseSkinsSrc.BlueRarity[RandomBlueItem]
  
@@ -223,6 +234,7 @@ function CardRollAnimation(){
            RandomRarityFunction()
 
            setPrizeStyles(CardsRarityDOM[i],CardsPrizeIMG[i])
+           
            console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
        } else {
           RandomRarityFunction()
@@ -231,6 +243,7 @@ function CardRollAnimation(){
        }
     }
     RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/20)));
+    console.log(CardWidth)
     CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/12.5*25 + RandomPixel)}px)`
    
    }
@@ -238,7 +251,18 @@ function CardRollAnimation(){
 
 CardRollAnimation()
 }
-loadChanceSkins(JsonData.Cases.Chroma_3_Case)
+
+
+
+ContinueButton.addEventListener("click", () =>{
+
+    PrizeContainer.style.display = `none`
+    CaseList.style.display = `flex`
+    OpeningCaseContainer.style.display = `none`
+})
+
+
+
 OpenButton.addEventListener("click", () =>{
 
 OpenButton.style.visibility = `hidden`
@@ -251,17 +275,50 @@ OpenButton.style.visibility = `hidden`
         CaseCards.style.transform = `translate(0px)`
        
         setTimeout(function(){
-            WorkingCase(JsonData.Cases.Chroma_3_Case)
+            WorkingCase(JsonData.Cases[CaseNumber])
             
         },200);
   
         setTimeout(function(){
             OpenButton.style.visibility = `visible`
-          
+            PrizeContainer.style.display = `flex`
+            PrizeContainer.style.position = `absolute`
+            PrizeContainerIMG.src = Winner_CardIMG.src
+            PrizeContainerName.textContent = Winner_Card_Name.textContent
+            PrizeContainer.style.background = `linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, ${Winner_Card_Name.style.backgroundColor} 80%, ${Winner_Card_Name.style.backgroundColor} 93%, rgba(43,52,91,0.9) 100%)`
+
+console.log(PrizeContainer.style.background)
+console.log(Winner_Card_Name.style.backgroundColor)
+
         },6250);
+
+
+
   
 })
 
 }
 // Calling that async function
-getapi(api_url);
+
+
+
+
+
+
+
+
+const CaseList = document.querySelector(".CaseListContainer")
+const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
+const Cases = document.querySelectorAll(".Case")
+
+for (let i = 0 ; i < Cases.length ; i ++) {
+    Cases[i].addEventListener("click" ,() => {
+
+        CaseList.style.display = `none`
+        OpeningCaseContainer.style.display = `flex`
+        
+        console.log(i)
+        getapi(api_url , i);
+
+    })
+}

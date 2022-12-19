@@ -1,10 +1,9 @@
-{
-
-
-"Cases": {
+{"Cases": [
     
-     "CSGO_Weapon_Case":{
+     {
       
+        "Name": "CSGO_Weapon_Case",
+
         "Rarities":[
             "Blue",
             "Purple",
@@ -93,9 +92,12 @@
         }
 
      },
-
-     "Chroma_3_Case":{
+    
+    { 
       
+    "Name": "Chroma_3_Case",
+
+
       "Rarities":[
           "Blue",
           "Purple",
@@ -201,9 +203,6 @@
 
    }
 
-}
-
-
-}
+]}
 
 
