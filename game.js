@@ -292,7 +292,7 @@ console.log(Winner_Card_Name.style.backgroundColor)
 
 // api url
 const api_url = 
-      "/caseData.json";
+      "caseData.json";
   
 // Defining async function
 fetch(api_url)
