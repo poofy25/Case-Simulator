@@ -30,14 +30,13 @@ let RandomPixel;
  function appFunction (data , CaseNumber) {
     
     console.log(data);
-    console.log(CaseNumber);
+   
    
     const CardWidth = Winner_Card.offsetWidth;
 
 
 
 function loadChanceSkins (Case) {
-    console.log(data.Cases[CaseNumber])
 const CaseInfo = data.Cases[CaseNumber]
 let CaseRaritiesArray = CaseInfo.Rarities;
 let CaseOdds = CaseInfo.Settings.CaseOdds;
@@ -101,7 +100,6 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
 
 
 
-console.log(TotalSkins)
 }
 loadChanceSkins(data.Cases.CaseName)
 
@@ -234,7 +232,7 @@ function CardRollAnimation(){
        }
     }
     RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/20)));
-    console.log(CardWidth)
+    
     CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/12.5*25 + RandomPixel)}px)`
    
    }
@@ -252,41 +250,42 @@ ContinueButton.addEventListener("click", () =>{
     OpeningCaseContainer.style.display = `none`
 })
 
-
+function OpenButtonFunction(){
+    console.log("gay")
+    OpenButton.style.visibility = `hidden`
+    
+      let OpeningSound =new Audio("Audio/CSGO Case Opening Sound Effect.mp3")
+        OpeningSound.play()
+     
+    
+            CaseCards.classList.remove('RollAnimation');
+            CaseCards.style.transform = `translate(0px)`
+           
+            setTimeout(function(){
+                WorkingCase(data.Cases[CaseNumber])
+                
+            },200);
+      
+            setTimeout(function(){
+                OpenButton.style.visibility = `visible`
+                PrizeContainer.style.display = `flex`
+                PrizeContainer.style.position = `absolute`
+                PrizeContainerIMG.src = Winner_CardIMG.src
+                PrizeContainerName.textContent = Winner_Card_Name.textContent
+                PrizeContainer.style.background = `linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, ${Winner_Card_Name.style.backgroundColor} 80%, ${Winner_Card_Name.style.backgroundColor} 93%, rgba(43,52,91,0.9) 100%)`
+    
+    
+    
+            },6250);
+    
+    
+    
+}
 
 OpenButton.addEventListener("click", () =>{
-
-OpenButton.style.visibility = `hidden`
-
-  let OpeningSound =new Audio("Audio/CSGO Case Opening Sound Effect.mp3")
-    OpeningSound.play()
- 
-
-        CaseCards.classList.remove('RollAnimation');
-        CaseCards.style.transform = `translate(0px)`
-       
-        setTimeout(function(){
-            WorkingCase(data.Cases[CaseNumber])
-            
-        },200);
+OpenButtonFunction()
   
-        setTimeout(function(){
-            OpenButton.style.visibility = `visible`
-            PrizeContainer.style.display = `flex`
-            PrizeContainer.style.position = `absolute`
-            PrizeContainerIMG.src = Winner_CardIMG.src
-            PrizeContainerName.textContent = Winner_Card_Name.textContent
-            PrizeContainer.style.background = `linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, ${Winner_Card_Name.style.backgroundColor} 80%, ${Winner_Card_Name.style.backgroundColor} 93%, rgba(43,52,91,0.9) 100%)`
-
-console.log(PrizeContainer.style.background)
-console.log(Winner_Card_Name.style.backgroundColor)
-
-        },6250);
-
-
-
-  
-})
+}, {once : true})
 
  }
 
@@ -310,7 +309,7 @@ for (let i = 0 ; i < Cases.length ; i ++) {
         CaseList.style.display = `none`
         OpeningCaseContainer.style.display = `flex`
         appFunction(data, i)
-        console.log(i)
+        
 
     })
 }
