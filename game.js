@@ -1,6 +1,6 @@
 "use strict";
 
-import JsonData from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
+//import JsonData from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
 
 const OpenButton = document.querySelector(".Open-Button")
 const CaseCards = document.querySelector(".Case-Container")
@@ -19,7 +19,20 @@ let RandomPixel;
 
 
 
-
+// api url
+const api_url = 
+      "/caseData.json";
+  
+// Defining async function
+async function getapi(url) {
+    
+    // Storing response
+    const response = await fetch(url);
+    
+    // Storing data in form of JSON
+    var JsonData = await response.json();
+    console.log(JsonData);
+   
 
 
 
@@ -249,12 +262,6 @@ OpenButton.style.visibility = `hidden`
   
 })
 
-
-
-
-
-
-
-
-
-
+}
+// Calling that async function
+getapi(api_url);
