@@ -1,6 +1,6 @@
 "use strict";
 
-//import JsonData from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
+//import data from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
 
 const OpenButton = document.querySelector(".Open-Button")
 const CaseCards = document.querySelector(".Case-Container")
@@ -23,22 +23,9 @@ let RandomPixel;
 
 
 
-
-
-
-// api url
-const api_url = 
-      "/caseData.json";
-  
-// Defining async function
-async function getapi(url , CaseNumber) {
+ function appFunction (data , CaseNumber) {
     
-    // Storing response
-    const response = await fetch(url);
-    
-    // Storing data in form of JSON
-    var JsonData = await response.json();
-    console.log(JsonData);
+    console.log(data);
     console.log(CaseNumber);
    
     const CardWidth = Winner_Card.offsetWidth;
@@ -46,8 +33,8 @@ async function getapi(url , CaseNumber) {
 
 
 function loadChanceSkins (Case) {
-    console.log(JsonData.Cases[CaseNumber])
-const CaseInfo = JsonData.Cases[CaseNumber]
+    console.log(data.Cases[CaseNumber])
+const CaseInfo = data.Cases[CaseNumber]
 let CaseRaritiesArray = CaseInfo.Rarities;
 let CaseOdds = CaseInfo.Settings.CaseOdds;
 let CaseSkinsName = CaseInfo.SkinsName;
@@ -112,7 +99,7 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
 
 console.log(TotalSkins)
 }
-loadChanceSkins(JsonData.Cases.CaseName)
+loadChanceSkins(data.Cases.CaseName)
 
 
 
@@ -275,7 +262,7 @@ OpenButton.style.visibility = `hidden`
         CaseCards.style.transform = `translate(0px)`
        
         setTimeout(function(){
-            WorkingCase(JsonData.Cases[CaseNumber])
+            WorkingCase(data.Cases[CaseNumber])
             
         },200);
   
@@ -297,17 +284,21 @@ console.log(Winner_Card_Name.style.backgroundColor)
   
 })
 
-}
-// Calling that async function
+ }
 
+// api url
+const api_url = 
+      "/caseData.json";
+  
+// Defining async function
+fetch(api_url)
+.then(function (response) {
+    return response.json();
+})
+    
+.then( function (data){
 
-
-
-
-
-
-
-const CaseList = document.querySelector(".CaseListContainer")
+    const CaseList = document.querySelector(".CaseListContainer")
 const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
 const Cases = document.querySelectorAll(".Case")
 
@@ -316,9 +307,12 @@ for (let i = 0 ; i < Cases.length ; i ++) {
 
         CaseList.style.display = `none`
         OpeningCaseContainer.style.display = `flex`
-        
+        appFunction(data, i)
         console.log(i)
-        getapi(api_url , i);
 
     })
 }
+   
+});
+// Calling that async function
+
