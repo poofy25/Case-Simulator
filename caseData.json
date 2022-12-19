@@ -1,0 +1,208 @@
+{"Cases": [
+    
+     {
+      
+        "Name": "CSGO_Weapon_Case",
+
+        "Rarities":[
+            "Blue",
+            "Purple",
+            "Pink",
+            "Red",
+            "Special"
+        ],
+
+        "SkinsSrc":{
+
+          "GrayRarity":[
+
+          ],
+
+          "BlueRarity":[
+            "PNGS/Cases/CSGO_Weapon_Case/BLUE_mp7_hy_skulls.png",
+            "PNGS/Cases/CSGO_Weapon_Case/BLUE_aug_hy_feathers_aug.png",
+            "PNGS/Cases/CSGO_Weapon_Case/BLUE_sg556_so_purple.png"
+          ],
+
+          "PurpleRarity": [
+                "PNGS/Cases/CSGO_Weapon_Case/PURPLE_glock_am_dragon_glock.png",
+                "PNGS/Cases/CSGO_Weapon_Case/PURPLE_m4a1_silencer_am_zebra_dark.png",
+                "PNGS/Cases/CSGO_Weapon_Case/PURPLE_usp_silencer_am_zebra_dark.png"
+          ],
+
+          "PinkRarity": [
+            "PNGS/Cases/CSGO_Weapon_Case/PINK_ak47_aq_oiled.png",
+            "PNGS/Cases/CSGO_Weapon_Case/PINK_deagle_aa_vertigo.png"
+          ],
+
+          "RedRarity": [
+            "PNGS/Cases/CSGO_Weapon_Case/RED_awp_am_lightning_awp.png"
+          ],
+
+          "SpecialRarity":[
+            "PNGS/Cases/CSGO_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
+          ]
+
+        },
+
+        "SkinsName": {
+            "GrayRarity":[
+
+            ],
+
+            "BlueRarity":[
+                "MP7 | Skulls",
+                "AUG | Wings",
+                "SG 553 | Ultraviolet"
+            ],
+
+            "PurpleRarity":[
+                "Glock-18 | Dragon Tattoo",
+                "M4A1-S | Dark Water",
+                "USP-S | Dark Water"
+            ],
+
+            "PinkRarity":[
+                "AK-47 | Case Hardened",
+                "Desert Eagle | Hypnotic"
+            ],
+
+            "RedRarity":[
+                "AWP | Lightning Strike"
+            ],
+
+            "SpecialRarity":[
+                "Special Item"
+            ]
+        },
+
+        "Settings":{
+
+            "CaseOdds":{
+
+                "GrayRarity":"0-0",
+                "BlueRarity":"2000-10000",
+                "PurpleRarity":"400-2000",
+                "PinkRarity":"80-400",
+                "RedRarity":"25-80",
+                "SpecialRarity":"0-25"
+
+            }
+               
+        }
+
+     },
+    
+    { 
+      
+    "Name": "Chroma_3_Case",
+
+
+      "Rarities":[
+          "Blue",
+          "Purple",
+          "Pink",
+          "Red",
+          "Special"
+      ],
+
+      "SkinsSrc":{
+
+        "GrayRarity":[
+
+        ],
+
+        "BlueRarity":[
+          "PNGS/Cases/Chroma_3_Case/BLUE_elite_gs_dualberettas_ventilators.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_g3sg1_sp_g3sg1_militiaorange.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_hkp2000_hy_p2000_oceani.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_m249_cu_m249_spectre.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_mp9_am_mp9_bioleak.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_sawedoff_gs_sawedoff_fubar.png",
+          "PNGS/Cases/Chroma_3_Case/BLUE_sg556_cu_sg553_atlas.png"
+        ],
+
+        "PurpleRarity": [
+              "PNGS/Cases/Chroma_3_Case/PURPLE_cz75a_gs_cz75a_redastor.png",
+              "PNGS/Cases/Chroma_3_Case/PURPLE_galilar_gs_galilar_incenerator.png",
+              "PNGS/Cases/Chroma_3_Case/PURPLE_ssg08_gs_ssg08_armacore.png",
+              "PNGS/Cases/Chroma_3_Case/PURPLE_tec9_am_tec9_redblast.png",
+              "PNGS/Cases/Chroma_3_Case/PURPLE_xm1014_cu_xm1014_spectrum.png"
+        ],
+
+        "PinkRarity": [
+          "PNGS/Cases/Chroma_3_Case/PINK_aug_cu_aug_swallows.png",
+          "PNGS/Cases/Chroma_3_Case/PINK_p250_cu_p250_asiimov.png",
+          "PNGS/Cases/Chroma_3_Case/PINK_ump45_cu_ump45_primalsaber.png"
+        ],
+
+        "RedRarity": [
+          "PNGS/Cases/Chroma_3_Case/RED_bizon_cu_bizon_curse.png",
+          "PNGS/Cases/Chroma_3_Case/RED_m4a1_silencer_cu_m4a1s_soultaker.png"
+        ],
+
+        "SpecialRarity":[
+          "PNGS/Cases/Chroma_3_Case/Special_Item.png"
+        ]
+
+      },
+
+      "SkinsName": {
+          "GrayRarity":[
+
+          ],
+
+          "BlueRarity":[
+              "Dual Berettas | Ventilators",
+              "G3SG1 | Orange Crash",
+              "P2000 | Oceanic",
+              "M249 | Spectre",
+              "MP9 | Bioleak",
+              "Sawed-Off | Fubar",
+              "SG 553 | Atlas"
+          ],
+
+          "PurpleRarity":[
+              "CZ75-Auto | Red Astor",
+              "Galil AR | Firefight",
+              "SSG 08 | Ghost Crusader",
+              "Tec-9 | Re-Entry",
+              "XM1014 | Black Tie"
+          ],
+
+          "PinkRarity":[
+              "AUG | Fleet Flock",
+              "P250 | Asiimov",
+              "UMP-45 | Primal Saber"
+          ],
+
+          "RedRarity":[
+              "PP-Bizon | Judgement of Anubis",
+              "M4A1-S | Chantico's Fire"
+          ],
+
+          "SpecialRarity":[
+              "Special Item"
+          ]
+      },
+
+      "Settings":{
+
+          "CaseOdds":{
+
+              "GrayRarity":"0-0",
+              "BlueRarity":"2000-10000",
+              "PurpleRarity":"400-2000",
+              "PinkRarity":"80-400",
+              "RedRarity":"25-80",
+              "SpecialRarity":"0-25"
+
+          }
+             
+      }
+
+   }
+
+]}
+
+
