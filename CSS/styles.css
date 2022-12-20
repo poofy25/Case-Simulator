@@ -235,7 +235,7 @@ align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     column-gap: 1vw;
-    row-gap: 1vh;
+    row-gap: 0.75vw;
 }
 
 .SkinItem{
