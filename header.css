@@ -1,0 +1,49 @@
+
+@font-face {
+    font-family: 'stratumno1heavy';
+    src: url('/CSGO_Font/stratumno1-black-webfont.woff') format('woff2'),
+         url('/CSGO_Font/stratumno1-black-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+
+}
+
+
+
+
+
+
+
+.Header_Container{
+    background-color: rgb(71, 78, 85);
+    width: 100%;
+    height: clamp(35px,8vh,150px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    margin-bottom: 10vh;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 10px 10px;
+}
+
+.Header_Container > button {
+    width: 20%;
+    background: transparent;
+    box-sizing: border-box;
+    border: none;
+    border-right: 2px solid rgb(29, 37, 45);
+    font-family: 'stratumno1heavy';
+    font-weight: lighter;
+    font-size: clamp(16px,1.4vw,50px);
+    color: white;
+    cursor: pointer;
+    
+}
+.Header_Container > button:hover{
+    background-color: rgb(95, 103, 110);
+}
+.Header_Container > button:nth-child(1){
+    border-left: 2px solid rgb(29, 37, 45);
+}
