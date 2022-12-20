@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Mitr-Regular';
+    src: url('CSGO_Font/Main_Font/mitr-regular-webfont.woff') format('woff2'),
+         url('CSGO_Font/Main_Font/mitr-regular-webfont.woff2') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mitr-Bold';
+    src: url('CSGO_Font/Main_Font/mitr-bold-webfont.woff') format('woff2'),
+         url('CSGO_Font/Main_Font/mitr-bold-webfont.woff2') format('woff');
+
+}
+@font-face {
+    font-family: 'Mitr-Medium';
+    src: url('CSGO_Font/Main_Font/mitr-medium-webfont.woff') format('woff2'),
+         url('CSGO_Font/Main_Font/mitr-medium-webfont.woff2') format('woff');
+
+}
+@font-face {
+    font-family: 'Mitr-Light';
+    src: url('CSGO_Font/Main_Font/mitr-light-webfont.woff') format('woff2'),
+         url('CSGO_Font/Main_Font/mitr-light-webfont.woff2') format('woff');
+
+}
