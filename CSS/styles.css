@@ -10,7 +10,7 @@ body{
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    background-image: url(/PNGS/Background-IMG.png);
+    background-image: url(../PNGS/Background-IMG.png);
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -159,7 +159,7 @@ transition-property: transform;
 
 
 .PrizeIMG{
-    background-image: url(/PNGS/Item-BG.png);
+    background-image: url(../PNGS/Item-BG.png);
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -251,7 +251,7 @@ align-items: center;
 
 .PrizeIMG-Chance{
     
-    background-image: url(/PNGS/Item-BG.png);
+    background-image: url(../PNGS/Item-BG.png);
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
