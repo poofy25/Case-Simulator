@@ -30,7 +30,7 @@ body {
     box-sizing: border-box;
     border: none;
     border-right: 2px solid rgb(29, 37, 45);
-    font-size: clamp(16px,1.4vw,50px);
+    font-size: clamp(16px,1vw,50px);
     color: white;
     cursor: pointer;
     font-family: 'Mitr-Regular';

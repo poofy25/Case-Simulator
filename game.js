@@ -96,7 +96,8 @@ for (let i = 0 ; i < 1 ; i++){
         TotalSkins = TotalSkins + 1
         ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.SpecialRarity[i]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(199,160,9)`
-        ChanceCardsRarityDOM[TotalSkins-1].textContent = CaseSkinsName.SpecialRarity[i]
+        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = "★Rare Special Item★"
+        ChanceCardsRaritySkinName[TotalSkins-1].textContent = ""
     }
 }
 
@@ -251,6 +252,7 @@ function CardRollAnimation(){
 
            setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
            
+           Winner_Card.Rarity = CurrentRarity
            console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
        } else {
           RandomRarityFunction()
@@ -258,9 +260,9 @@ function CardRollAnimation(){
    
        }
     }
-    RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/20)));
+    RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/10)));
     
-    CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/7*24  + RandomPixel + CardWidth/7)}px)`
+    CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/14*23 + RandomPixel)}px)`
 
    }
 
@@ -268,10 +270,8 @@ function CardRollAnimation(){
 CardRollAnimation()
 }
 
-
-
 ContinueButton.addEventListener("click", () =>{
-
+    
     PrizeContainer.style.display = `none`
     CaseList.style.display = `flex`
     OpeningCaseContainer.style.display = `none`
@@ -298,8 +298,16 @@ function OpenButtonFunction(){
                 PrizeContainer.style.display = `flex`
                 PrizeContainer.style.position = `absolute`
                 PrizeContainerIMG.src = Winner_CardIMG.src
-                PrizeContainerName.textContent = Winner_Card_Name.textContent
-                PrizeContainer.style.background = `linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, ${Winner_Card_Name.style.backgroundColor} 80%, ${Winner_Card_Name.style.backgroundColor} 93%, rgba(43,52,91,0.9) 100%)`
+                let Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n")
+                PrizeContainerName.textContent = Winner_Card_Name_Array[1] + " | " + Winner_Card_Name_Array[2]
+                let W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
+                PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1]-50)},${(W_RGB[2]-50)},${(W_RGB[3]-50)}) 80%, rgba(${(W_RGB[1]-50)},${(W_RGB[2]-50)},${(W_RGB[3]-50)}) 97%, rgba(${(W_RGB[1]-50)},${(W_RGB[2]-50)},${(W_RGB[3]-50)},0.95) 100%) ,
+                    repeating-linear-gradient(
+                    120deg,
+                    rgb(255, 255, 255,1) 0px,
+                    rgba(255,255,255,0) 4px,
+                    rgba(255, 255, 255, 0) 4.5px
+                  )`
     
     
     

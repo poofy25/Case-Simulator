@@ -19,7 +19,6 @@ body{
 
 
 .CaseListContainer{
-    background-color: aquamarine;
 
     width: 100%;
     height: 100%;
@@ -35,14 +34,13 @@ display: flex;
     height: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 1vw;
+    gap: 0.2vw;
 }
 .Case{
     box-sizing: border-box;
     display: inline-flex;
-    width:  7vw;
-    aspect-ratio: 9/7;
-    background-color: rgba(255, 255, 255, 0);
+    width:  8vw;
+    aspect-ratio: 9/8.25;
     border: 1px solid rgb(75, 75, 75);
     display: flex;
     flex-direction: column;
@@ -53,62 +51,114 @@ display: flex;
     font-size: 12px;
     cursor: pointer;
     background-color: gray;
+    box-shadow: rgba(6, 24, 44, 0.2) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.Case-IMG{
+    background-image: url(../PNGS/Item-BG.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.Case > img{
+.Case-IMG > img{
     height: 100%;
 }
+.Case-Rarity-Name{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+   font-size: clamp(2px,0.6vw,20px);
+    width: 100%;
+    height: 30%;
+    padding-top: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+    background: linear-gradient(90deg, rgba(184, 184, 184, 0.4) 0%, rgba(59,59,59,0.5) 90%);
+    text-align: start;
+    text-shadow: 2px 2px 0.5px rgba(0, 0, 0,0.5);
+    border-top: 1px solid rgba(128, 128, 128,0.5);
+    box-sizing: border-box;
+    font-family: 'Mitr-Regular';
+}
+
+
+
+
+
 
 
 
 
 .OpeningCaseContainer{
-    background-color: aquamarine;
     width: 100%;
     height: auto;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items:center;
   flex-direction: column;
    display: none;
+   position: relative;
 }
 .OpeningContainer{
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(12, 21, 28);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 12vw;
+    box-shadow: rgba(0, 0, 0,0.6) 0px 6px 4px -1px;
+    z-index: 2;
 }
 .ViewPort{
     display: flex;
     position: relative;
     align-items: center;
     box-sizing: border-box;
-    background-color: rgb(37, 37, 37);
+    background-color: rgb(14, 18, 24);
     width: 23vw;
     height: 7.6vw;
     aspect-ratio: 9/3;
     z-index: 2;
 overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px, inset rgba(179, 179, 179, 0.5) 0px 1px 0px 0px ,inset rgb(13,15,17) 0px -1vh 0px 0px ,inset rgb(13,15,17) 0px 1vh 0px 0px , rgb(128, 129, 129) 1px 1px 3px -.75px ;
    
 }
 .ViewPortGradient{
     width:  23vw;
     aspect-ratio: 9/3;
     background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.25) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgba(0,0,0,.9) 100%);
     z-index: 100;
     position:absolute;
 }
-
+.ViewPortLightGradient{
+    width:  10vw;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    height: 7.66vw;
+    background: rgb(255,255,255);
+    background: linear-gradient(165deg, rgba(255,255,255,0.1) 0%, rgba(59,59,59,0) 30%);
+    transform: skew(20deg);
+    z-index: 101;
+    position:absolute;
+}
 .Arrows{
     position:absolute;
-    left: calc(50% - 2px);
-    width: 4px;
+    left: calc(50% - 0.25%);
+    width: 0.5%;
     height: 13.2vw;
-    background: rgb(231,209,0);
-    background: linear-gradient(0deg, rgba(231,209,0,1) 0%, rgba(0,0,0,0) 50%, rgba(231,209,0,1) 100%);
+    background: rgba(182, 122, 39,0.75);
+   box-shadow: rgba(80, 78, 75, 0.9) 0px 0px 4px 0.5px;
     z-index: 10;
 }
 
@@ -117,7 +167,7 @@ overflow: hidden;
     flex-direction: row;
     width: fit-content;
       margin: auto;
-      gap: 1vw;
+      gap: 0.5vw;
       justify-content:center;
 background-color: transparent;
 justify-content: center;
@@ -132,26 +182,19 @@ transition-property: transform;
 
 .Case-Card{
     box-sizing: border-box;
-    display: inline-flex;
     width:  7vw;
-    aspect-ratio: 9/7;
+    aspect-ratio: 9/7.5;
     background-color: rgba(255, 0, 0,0);
     border: 1px solid rgb(75, 75, 75);
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    color: white;
-    font-size: 8px;
-    font-family: 'Mitr-Medium';
 }
 .Winner_Card{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-family: monospace;
-    font-size: 20px;
     background-color: rgba(255, 0, 0,0.03);
  
 }
@@ -188,8 +231,6 @@ transition-property: transform;
     height: 30%;
     padding-left: 10%;
     box-sizing: border-box;
-    font-size: clamp(2px,0.55vw,20px);
-    background: rgb(69,92,31);
     background: linear-gradient(90deg, rgba(69,92,31,0.15449929971988796) 0%, rgba(59,59,59,0.47102591036414565) 78%);
     text-align: start;
     border-top: 1px solid rgba(128, 128, 128,0.5);
@@ -197,30 +238,37 @@ transition-property: transform;
 .PrizeRarity > p {
     margin: 0;
 }
-.PrizeRarity-Weapon{
-    font-family: 'Mitr-Regular';
-}
-.PrizeRarity-SkinName{
-font-family: 'Mitr-Light';
-}
 
 
 
 
 
 .OpenCaseButtonContainer{
-    background-color: rgb(21, 21, 65);
+    background-color: rgb(15, 26, 37);
     width: 100%;
     height: 4vw;
     display: flex;
     justify-content: center;
 align-items: center;
+box-shadow: rgba(0, 0, 0,0.6) 0px 4px 4px 0px;
 }
 
 
 .Open-Button{
-  display: block;
-  margin: 0;
+    cursor: pointer;
+    width: 15%;
+    height:45%;
+    font-family: 'Mitr-Regular';
+ font-size: .9rem;
+ color: white;
+ background: rgb(69,92,31);
+ border: none;
+background: linear-gradient(0deg, rgba(69,92,31,1) 0%, rgba(77,107,32,1) 50%, rgba(89,113,45,1) 100%);
+box-shadow: rgba(22,31,6, 1) 0px 1px 2px 0px, rgba(22,31,6, .5) 0px 2px 6px 2px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: clamp(5px,1.25vw,20px);
 }
 
 .CaseItemsContainer{
@@ -230,17 +278,16 @@ align-items: center;
     padding-top: 1vh;
     padding-bottom: 5vh;
     width: 100%;
-    background-color: darkcyan;
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     column-gap: 1vw;
-    row-gap: 0.75vw;
+    row-gap: .75vw;
 }
 
 .SkinItem{
     width:  7vw;
-    aspect-ratio: 9/7;
+    aspect-ratio: 9/8.25;
     background-color: red;
     box-shadow: rgba(6, 24, 44, 0.2) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
@@ -273,27 +320,39 @@ align-items: center;
     justify-content: start;
     align-items: flex-start;
     color: white;
-   font-size: clamp(2px,0.55vw,20px);
+   font-size: clamp(2px,0.7vw,20px);
     width: 100%;
     height: 30%;
     padding-left: 10%;
     background: rgb(69,92,31);
-    background: linear-gradient(90deg, rgba(69,92,31,0.15449929971988796) 0%, rgba(59,59,59,0.47102591036414565) 78%);
+    background: linear-gradient(90deg, rgba(69,92,31,0.15) 0%, rgba(59,59,59,0.5) 80%);
     text-align: start;
     border-top: 1px solid rgba(128, 128, 128,0.5);
     box-sizing: border-box;
 }
 .PrizeRarity-Chance > p {
     margin: 0;
-    text-align: start;
+    text-align: center;
 }
-.PrizeRarity-Chance-Weapon{
+.PrizeRarity-Weapon{
     font-family: 'Mitr-Medium';
+    font-size: clamp(2px,0.55vw,20px);
 }
-.PrizeRarity-Chance-SkinName{
+.PrizeRarity-SkinName{
    
     font-family: 'Mitr-Light';
+    font-size: clamp(2px,0.50vw,20px);
 }
+.SkinItem-Chance-Weapon{
+    font-family: 'Mitr-Medium';
+    font-size: clamp(2px,0.55vw,20px);
+}
+.SkinItem-Chance-SkinName{
+   
+    font-family: 'Mitr-Light';
+    font-size: clamp(2px,0.50vw,20px);
+}
+
 
 
 
@@ -304,69 +363,85 @@ align-items: center;
 .PrizeContainer{
     position: absolute;
   top: 2.5vh;
-    z-index: 99;
+    z-index: 5;
     
     width: 50vw;
     aspect-ratio: 20/12;
     background: rgb(38,38,38);
-    background: linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 23%, rgba(33,40,66,1) 80%, rgba(35,43,76,1) 93%, rgba(43,52,91,0.9) 100%);
+    background-image: linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 10%, rgba(33,40,66,1) 80%, rgba(35,43,76,1) 93%, rgba(43,52,91,0.9) 100%) ,repeating-linear-gradient(
+        120deg,
+        rgb(255, 255, 255,1) 0px,
+        rgba(255,255,255,0) 4px,
+        rgba(255, 255, 255, 0) 4.5px
+      );
+    
+
     display: none;
     align-items: center;
     flex-direction: column;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.5) 0px 2px 4px 4px;
 }
-
 .PrizeContainerName{
  color: white;
  display: flex;
  justify-content: center;
  align-items: center;
- font-family:sans-serif;
- font-weight: bold;
- font-size: larger;
+ text-align: center;
+ font-family:'Mitr-Regular';
+font-size: clamp(10px,1.25vw,30px);
     width: 100%;
     height: 8%;
 }
 
 .PrizeContainerIMG{
-  border: 2px solid rgba(26, 27, 30 ,0.5);
-    width: 96%;
+    width: 98%;
     height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../PNGS/Prize_Background.png);
+    background-position: center; /* Center the image */
+   
+    background: rgb(59,59,59);
+background: linear-gradient(170deg, rgba(59,59,59,1) 0%, rgba(255,255,255,0) 41%),url(../PNGS/Prize_Background.png);
+background-size: cover;
+box-shadow: 0px 0px 2px 2px rgba(0, 0, 0,0.5);
+overflow: hidden;
 }
 .PrizeContainerIMG > img {
    height: 100%;
+   filter: drop-shadow(40px 30px 2px rgba(34, 34, 34,0.9));
 }
 .PrizeContainerContinue{
     
     width: 100%;
     height: 18%;
     box-sizing: border-box;
-    border-top: 5px solid rgb(27, 26, 26);
-    margin-top: auto;
+    border-top: 5px solid rgba(27, 26, 26,0.5);
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    margin-top: auto;
 }
 .PrizeContainerContinue > p {
-margin: 0.5rem;
-margin-top: 1rem;
-font-family:sans-serif;
- font-weight: normal;
- font-size: 1rem;
+    margin: 0;
+   margin-top: auto;
+font-family:'Mitr-Regular';
+ font-size: clamp(5px,1vw,20px);
  color: white;
 }
 
 .ContinueButton{
+    margin: auto;
     cursor: pointer;
     width: 17.5%;
     height: 32.5%;
-    font-family:sans-serif;
- font-weight: normal;
- font-size: 1rem;
+    font-family:'Mitr-Light';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ font-size: clamp(5px,1.25vw,20px);
  color: white;
  background: rgb(69,92,31);
  border: none;

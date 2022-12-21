@@ -3,14 +3,14 @@ display: grid;
 width: 80vw;
 box-sizing: border-box;
 
-height: 80vh;
+aspect-ratio: 20/9;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 gap: 1.5vw;
 position: relative;
 }
 .UI_Container > div {
-    background-color: aqua;
+    background-color: rgba(46, 56, 65, 0.8);
 }
 
 .Profile_UI {
@@ -23,7 +23,15 @@ position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    box-shadow: rgba(0, 0, 0 , 0.5) 0px 0px 4px 2px;
+    position: relative;
+    background-color: #ccc;
+  background-image: radial-gradient(rgba(42, 42, 46,0.1) 25%, transparent 30%);
+  background-size: 30px 30px;
+  
+  background-repeat: repeat;
 }
+
 .Friends_UI {
     grid-row: span 4;
     grid-column: span 2;
