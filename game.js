@@ -25,7 +25,7 @@ const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
 const Cases = document.querySelectorAll(".Case")
 let RandomPixel;
 
-
+let OddsMultiplyingValue = 1;
 
  function appFunction (data , CaseNumber) {
     
@@ -145,7 +145,7 @@ let RandomRarityNumber
 
 function RandomRarityFunction() {
 
-const GrayOdds = CaseOdds.GrayRarity.split("-");
+const GrayOdds = Number(CaseOdds.GrayRarity.split("-"));
 const BlueOdds = CaseOdds.BlueRarity.split("-");
 const PurpleOdds = CaseOdds.PurpleRarity.split("-");
 const PinkOdds = CaseOdds.PinkRarity.split("-");
@@ -154,28 +154,46 @@ const SpecialOdds = CaseOdds.SpecialRarity.split("-");
 
 
 
-
-
+    let BlueOddsNumber = Number(BlueOdds[0]) * OddsMultiplyingValue;
 if (CaseRaritiesArray[0] == "Blue"){
 
+if (BlueOddsNumber > Number(BlueOdds[1])){
+    BlueOddsNumber = 10000;
+}
     RandomRarityNumber = Math.floor(Math.random() * 10000) + 1;
-    if (RandomRarityNumber > BlueOdds[0] && RandomRarityNumber <= BlueOdds[1]){
+    if (RandomRarityNumber > BlueOddsNumber && RandomRarityNumber <= BlueOdds[1]){
         CurrentRarity = CaseRaritiesArray[0]
-    } else if (RandomRarityNumber > PurpleOdds[0] && RandomRarityNumber <= PurpleOdds[1]){
+    } else if (RandomRarityNumber > Number(PurpleOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(BlueOdds[0]) * OddsMultiplyingValue){
         CurrentRarity = CaseRaritiesArray[1]
-    } else if (RandomRarityNumber > PinkOdds[0] && RandomRarityNumber <= PinkOdds[1]){
+    } else if (RandomRarityNumber > Number(PinkOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(PurpleOdds[0]) * OddsMultiplyingValue){
         CurrentRarity = CaseRaritiesArray[2]
-    } else if (RandomRarityNumber > RedOdds[0] && RandomRarityNumber <= RedOdds[1]){
+    } else if (RandomRarityNumber > Number(RedOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(PinkOdds[0]) * OddsMultiplyingValue){
         CurrentRarity = CaseRaritiesArray[3]
-    } else if (RandomRarityNumber > SpecialOdds[0] && RandomRarityNumber <= SpecialOdds[0]){
+    } else if (RandomRarityNumber > SpecialOdds[0] && RandomRarityNumber <= Number(RedOdds[0]) * OddsMultiplyingValue){
         CurrentRarity = CaseRaritiesArray[4]
     }
 
 } else if (CaseRaritiesArray[0] == Gray){
        console.log("NEEDS TO BE DONE")
 }
+
 }
 
+
+
+let StatTrack;
+
+function StatTrackFunction (SkinName){
+
+let StatTrackRandomNumber = Math.floor(Math.random() * 10) + 1;
+if (StatTrackRandomNumber == 1){
+  
+    SkinName.textContent = "StatTrack™ " + SkinName.textContent
+    console.log("This item is STT" + SkinName.textContent)
+}
+
+
+}
 
 
 
@@ -189,13 +207,14 @@ function setPrizeStyles(index , PrizeImage , PrizeRarity){
 
 const PrizeRarity_Weapon = document.querySelectorAll(".PrizeRarity-Weapon")
 const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
-
+//console.log(index)
+   // console.log("Lenght : "+PrizeRarity_Weapon.length)
     if (CurrentRarity == "Gray"){
 
     PrizeRarity.style.backgroundColor = "Gray"
     let NameArray = CaseSkinsName.GrayRarity[RandomGrayItem].split("|");
-    PrizeRarity_Weapon[index] = NameArray[0];
-    PrizeRarity_SkinName[index] = NameArray[1];
+    PrizeRarity_Weapon[index].textContent = NameArray[0];
+    PrizeRarity_SkinName[index].textContent = NameArray[1];
     PrizeImage.src = CaseSkinsSrc.GrayRarity[RandomGrayItem]
 
 } else if (CurrentRarity == "Blue") {
@@ -211,6 +230,7 @@ const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
 
     PrizeRarity.style.backgroundColor = `rgb(107,72,195)`
     let NameArray = CaseSkinsName.PurpleRarity[RandomPurpleItem].split("|");
+    
     PrizeRarity_Weapon[index].textContent = NameArray[0];
     PrizeRarity_SkinName[index].textContent = NameArray[1];
     PrizeImage.src = CaseSkinsSrc.PurpleRarity[RandomPurpleItem]
@@ -234,12 +254,21 @@ const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
 } else if (CurrentRarity == "Special") {
 
     PrizeRarity.style.backgroundColor = `rgb(199,160,9)`
-    PrizeRarity.textContent = CaseSkinsName.SpecialRarity[0]
+    PrizeRarity_Weapon[index].textContent = CaseSkinsName.SpecialRarity[0];
+    PrizeRarity_SkinName[index].textContent = "";
     PrizeImage.src = CaseSkinsSrc.SpecialRarity[0]
 
 }
-
+StatTrackFunction(PrizeRarity_Weapon[index]);
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -248,17 +277,18 @@ function CardRollAnimation(){
     CaseCards.classList.add('RollAnimation');
    for (let i = 0 ; i < Cards.length ; i++){
        if (Cards[i] == Winner_Card){
-           RandomRarityFunction()
+         
 
-           setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
            
            Winner_Card.Rarity = CurrentRarity
-           console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
-       } else {
+           console.clear
+           //console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
+           console.log(Winner_Card)
+       }
           RandomRarityFunction()
           setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
    
-       }
+       
     }
     RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/10)));
     
@@ -301,7 +331,7 @@ function OpenButtonFunction(){
                 let Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n")
                 PrizeContainerName.textContent = Winner_Card_Name_Array[1] + " | " + Winner_Card_Name_Array[2]
                 let W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
-                PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1])},${(W_RGB[2]-0)},${(W_RGB[3])}) 80%, rgba(${(W_RGB[1]-0)},${(W_RGB[2]-0)},${(W_RGB[3]-0)}) 97%, rgba(${(W_RGB[1]-0)},${(W_RGB[2]-0)},${(W_RGB[3]-0)},0.95) 100%) ,
+                PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 80%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 97%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)},0.95) 100%) ,
                     repeating-linear-gradient(
                     120deg,
                     rgb(255, 255, 255,1) 0px,
@@ -336,7 +366,16 @@ fetch(api_url)
     
 .then( function (data){
 
- 
+    
+const MultiplierButton = document.querySelector(".RarityMultiplaierButton")
+MultiplierButton.onclick = function () {
+    OddsMultiplyingValue = document.querySelector(".RarityMuliplaierInput").value
+    if (OddsMultiplyingValue == ""){
+        OddsMultiplyingValue = 1;
+    }
+    console.log(OddsMultiplyingValue)
+}
+   
 
 for (let i = 0 ; i < Cases.length ; i ++) {
     Cases[i].addEventListener("click" ,() => {

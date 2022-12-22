@@ -75,7 +75,7 @@ display: flex;
     justify-content: flex-start;
     align-items: center;
     color: white;
-   font-size: clamp(2px,0.6vw,20px);
+   font-size: clamp(2px,0.7vw,20px);
     width: 100%;
     height: 30%;
     padding-top: 2%;
@@ -99,7 +99,7 @@ display: flex;
 
 .OpeningCaseContainer{
     width: 100%;
-    height: auto;
+    max-height: 100%;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -275,20 +275,44 @@ font-size: clamp(5px,1.25vw,20px);
     box-sizing: border-box;
     padding-left: 2vw;
     padding-right: 2vw;
-    padding-top: 1vh;
-    padding-bottom: 5vh;
+    margin-top: 1vh;
+    padding-bottom: 4vh;
     width: 100%;
     height: auto;
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     column-gap: 1vw;
-    row-gap: .75vw;
+    row-gap: .5vw;
+    max-height: 100%;
+    overflow-y: scroll;
 }
+.CaseItemsContainer::-webkit-scrollbar {
+    width:2px;
+  }
+  
+  /* Track */
+  .CaseItemsContainer::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  .CaseItemsContainer::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0,0.4); 
+    border-radius: 50%;
+  }
+  
+  /* Handle on hover */
+  .CaseItemsContainer::-webkit-scrollbar-thumb:hover {
+    background: transparent; 
+  }
+
+
+
 
 .SkinItem{
     width:  7vw;
     aspect-ratio: 9/8.25;
-    background-color: red;
     box-shadow: rgba(6, 24, 44, 0.2) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
@@ -317,13 +341,15 @@ font-size: clamp(5px,1.25vw,20px);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
+    
     align-items: flex-start;
     color: white;
    font-size: clamp(2px,0.7vw,20px);
     width: 100%;
     height: 30%;
-    padding-left: 10%;
+    padding-left: 7%;
+    padding-right: 7%;
     background: rgb(69,92,31);
     background: linear-gradient(90deg, rgba(69,92,31,0.15) 0%, rgba(59,59,59,0.5) 80%);
     text-align: start;
@@ -334,24 +360,38 @@ font-size: clamp(5px,1.25vw,20px);
     margin: 0;
     text-align: center;
 }
+
+
+
+.SkinItem-Chance-Weapon{
+    font-family: 'Mitr-Medium';
+    font-size: clamp(2px,0.575vw,20px);
+}
+.SkinItem-Chance-SkinName{
+   
+    font-family: 'Mitr-Light';
+    font-size: clamp(2px,0.55vw,20px);
+}
+
+
+
+
+
+
+
+
 .PrizeRarity-Weapon{
     font-family: 'Mitr-Medium';
-    font-size: clamp(2px,0.55vw,20px);
+    font-size: clamp(2px,0.45vw,20px);
 }
 .PrizeRarity-SkinName{
    
     font-family: 'Mitr-Light';
     font-size: clamp(2px,0.50vw,20px);
 }
-.SkinItem-Chance-Weapon{
-    font-family: 'Mitr-Medium';
-    font-size: clamp(2px,0.55vw,20px);
-}
-.SkinItem-Chance-SkinName{
-   
-    font-family: 'Mitr-Light';
-    font-size: clamp(2px,0.50vw,20px);
-}
+
+
+
 
 
 

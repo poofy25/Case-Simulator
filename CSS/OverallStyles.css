@@ -3,7 +3,7 @@ display: grid;
 width: 80vw;
 box-sizing: border-box;
 
-aspect-ratio: 20/9;
+height: 36vw;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 gap: 1.5vw;
@@ -15,8 +15,40 @@ position: relative;
 
 .Profile_UI {
     grid-column: span 2;
-
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+padding-left: 10%;
+box-sizing: border-box;
+max-height: 100%;
 }
+.Profile_UI > p:nth-child(1) {
+    margin: 0.25rem;
+    color: white;
+}
+.BetweenValue{
+    color:rgba(255, 255, 255,0.5);
+    margin: 0;
+    margin-left: 0.25rem;
+    font-size: clamp(5px,1.25vw,30px);
+    font-family: 'Mitr-Light';
+}
+.RarityMuliplaierInput{
+    width: 50%;
+    margin: 0.25rem;
+}
+.RarityMultiplaierButton{
+    width: 25%;
+    margin: 0.25rem;
+}
+
+
+
+
+
+
+
 .Game_UI {
     grid-column: span 4;
     grid-row: span 5;
@@ -30,9 +62,11 @@ position: relative;
   background-size: 30px 30px;
   
   background-repeat: repeat;
+  overflow: hidden;
 }
 
 .Friends_UI {
     grid-row: span 4;
     grid-column: span 2;
+  
 }
