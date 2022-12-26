@@ -201,8 +201,115 @@
              
       }
 
-   }
+   },
+    
+   { 
+     
+   "Name": "Winter_Offensive_Weapon_Case",
+
+
+     "Rarities":[
+         "Blue",
+         "Purple",
+         "Pink",
+         "Red",
+         "Special"
+     ],
+
+     "SkinsSrc":{
+
+       "GrayRarity":[
+
+       ],
+
+       "BlueRarity":[
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/BLUE_m249_aq_obsidian_light.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/BLUE_bizon_am_turqoise_halftone.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/BLUE_fiveseven_hy_kami.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/BLUE_galilar_cu_sandstorm.png"
+       ],
+
+       "PurpleRarity": [
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PURPLE_nova_cu_skull_nova.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PURPLE_elite_hy_marina_sunrise.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PURPLE_famas_cu_famas_pulse.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PURPLE_mp9_am_thorny_rose_mp9.png"
+       ],
+
+       "PinkRarity": [
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PINK_p250_cu_p250_refined.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PINK_awp_cu_awp_cobra.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/PINK_m4a1_silencer_cu_m4a1-s_elegant.png"
+       ],
+
+       "RedRarity": [
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/RED_sawedoff_cu_sawedoff_octopump.png",
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/RED_m4a1_cu_m4_asimov.png"
+       ],
+
+       "SpecialRarity":[
+        "PNGS/Cases/Winter_Offensive_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
+       ]
+
+     },
+
+     "SkinsName": {
+         "GrayRarity":[
+
+         ],
+
+         "BlueRarity":[
+             "M249 | Magma",
+             "PP-Bizon | Cobalt Halftone",
+             "Five-SeveN | Kami",
+             "Galil AR | Sandstorm"
+         ],
+
+         "PurpleRarity":[
+             "Nova | Rising Skull",
+             "Dual Berettas | Marina",
+             "FAMAS | Pulse",
+             "MP9 | Rose Iron"
+         ],
+
+         "PinkRarity":[
+             "P250 | Mehndi",
+             "AWP | Redline",
+             "M4A1-S | Guardian"
+         ],
+
+         "RedRarity":[
+             "Sawed-Off | The Kraken",
+             "M4A4 | Asiimov"
+         ],
+
+         "SpecialRarity":[
+             "Rare Special Item"
+         ]
+     },
+
+     "Settings":{
+
+         "CaseOdds":{
+
+             "GrayRarity":"0-0",
+             "BlueRarity":"2000-10000",
+             "PurpleRarity":"400-2000",
+             "PinkRarity":"80-400",
+             "RedRarity":"25-80",
+             "SpecialRarity":"0-25"
+
+         }
+            
+     }
+
+  }
 
 ]}
+
+
+
+
+
 
 

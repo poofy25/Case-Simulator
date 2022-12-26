@@ -1,7 +1,6 @@
-"use strict";
 
-//import data from 'https://poofy25.github.io/Case-Simulator/caseData.json' assert {type: 'json'};
 
+//CASE DOMS
 const OpenButton = document.querySelector(".Open-Button")
 const CaseCards = document.querySelector(".Case-Container")
 const Winner_Card = document.querySelector(".Winner_Card")
@@ -11,43 +10,56 @@ const Cards = document.querySelectorAll(".Case-Card")
 const CardsRarityDOM = document.querySelectorAll(".PrizeRarity")
 const CardsPrizeIMG = document.querySelectorAll(".PrizeIMG img")
 
+//CASE SKINS DOMS
 const ChanceSkins = document.querySelectorAll(".SkinItem")
 const ChanceCardsRarityDOM = document.querySelectorAll(".PrizeRarity-Chance")
 const ChanceCardsPrizeIMG = document.querySelectorAll(".PrizeIMG-Chance img")
+const ChanceCardsRarityWeaponName = document.querySelectorAll(".SkinItem-Chance-Weapon");
+const ChanceCardsRaritySkinName = document.querySelectorAll(".SkinItem-Chance-SkinName");
 
+//PRIZE CONTAINER DOMS
 const PrizeContainer = document.querySelector(".PrizeContainer")
 const ContinueButton = document.querySelector(".ContinueButton")
 const PrizeContainerIMG = document.querySelector(".PrizeContainerIMG img")
 const PrizeContainerName = document.querySelector(".PrizeContainerName")
 
-const CaseList = document.querySelector(".CaseListContainer")
+//CASE LIST DOMS
+const CaseList = document.querySelector(".CasesGrid")
 const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
 const Cases = document.querySelectorAll(".Case")
-let RandomPixel;
 
+// RANDOM PIXEL VALUE FOR OPENING CASE
+let RandomPixel;
+//ODDS MULTIPLIYING VALUE FOR CASES (default value is 1)
 let OddsMultiplyingValue = 1;
 
+// INVENTORY VARIABLES
+
+import {Inventory} from '/Inventory_LS.js';
+
+
+
+//CALLING THE FUNCTION WHEN A CASE IS SELECTED
  function appFunction (data , CaseNumber) {
     
     console.log(data);
    
-   
+    let CollectionName = data.Cases[CaseNumber].Name
+
+   //CARD WIDTH
     const CardWidth = Winner_Card.offsetWidth;
 
 
+//LOADING CASE SKINS
+function loadChanceSkins () {
 
-function loadChanceSkins (Case) {
 const CaseInfo = data.Cases[CaseNumber]
-let CaseRaritiesArray = CaseInfo.Rarities;
-let CaseOdds = CaseInfo.Settings.CaseOdds;
 let CaseSkinsName = CaseInfo.SkinsName;
 let CaseSkinsSrc = CaseInfo.SkinsSrc
 
 var TotalSkins = 0;
 
-const ChanceCardsRarityWeaponName = document.querySelectorAll(".SkinItem-Chance-Weapon");
-const ChanceCardsRaritySkinName = document.querySelectorAll(".SkinItem-Chance-SkinName");
-
+//NAMING AND STYLING EACH CARD
 for (let i = 0 ; i < 1 ; i++){
     for (let i = 0 ; i < CaseSkinsSrc.GrayRarity.length; i++){
         TotalSkins = TotalSkins + 1;
@@ -100,7 +112,7 @@ for (let i = 0 ; i < 1 ; i++){
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = ""
     }
 }
-
+//REMOVING UNNEEDED CARDS
 for (let i = 0 ; i < ChanceSkins.length ; i++){
     if (i >= TotalSkins){
         ChanceSkins[i].style.display = `none`
@@ -115,15 +127,14 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
 
 }
 
-
-
 }
 loadChanceSkins(data.Cases.CaseName)
 
 
 
-
+//OPENING CASE FUNTION
 function WorkingCase(Case){
+
 const CaseInfo = Case
 let CaseRaritiesArray = CaseInfo.Rarities;
 let CaseOdds = CaseInfo.Settings.CaseOdds;
@@ -131,6 +142,7 @@ let CaseSkinsName = CaseInfo.SkinsName;
 let CaseSkinsSrc = CaseInfo.SkinsSrc
 
 let CurrentRarity;
+let RandomRarityNumber
 
 let RandomGrayItem;
 let RandomBlueItem;
@@ -138,13 +150,13 @@ let RandomPurpleItem;
 let RandomPinkItem;
 let RandomRedItem;
 
-let RandomRarityNumber
 
 
 //ODDS FUNCTION 
 
 function RandomRarityFunction() {
 
+//ODDS FROM JSON FILE
 const GrayOdds = Number(CaseOdds.GrayRarity.split("-"));
 const BlueOdds = CaseOdds.BlueRarity.split("-");
 const PurpleOdds = CaseOdds.PurpleRarity.split("-");
@@ -154,7 +166,8 @@ const SpecialOdds = CaseOdds.SpecialRarity.split("-");
 
 
 
-    let BlueOddsNumber = Number(BlueOdds[0]) * OddsMultiplyingValue;
+let BlueOddsNumber = Number(BlueOdds[0]) * OddsMultiplyingValue;
+//CALCULATING ODDS
 if (CaseRaritiesArray[0] == "Blue"){
 
 if (BlueOddsNumber > Number(BlueOdds[1])){
@@ -179,36 +192,33 @@ if (BlueOddsNumber > Number(BlueOdds[1])){
 
 }
 
-
-
+//STATTRACK ITEM FUNCTION
 let StatTrack;
-
 function StatTrackFunction (SkinName){
 
 let StatTrackRandomNumber = Math.floor(Math.random() * 10) + 1;
 if (StatTrackRandomNumber == 1){
   
     SkinName.textContent = "StatTrack™ " + SkinName.textContent
-    console.log("This item is STT" + SkinName.textContent)
+    
 }
 
 
 }
 
-
-
+//SETTING CARDS STYLE IN CASE ROLLERCOSTER
 function setPrizeStyles(index , PrizeImage , PrizeRarity){
+    //RANDOM ITEM FROM THE LENGHT OF RARITY IN A CASE
     RandomGrayItem = Math.floor(Math.random() * CaseSkinsSrc.GrayRarity.length)
     RandomBlueItem = Math.floor(Math.random() * CaseSkinsSrc.BlueRarity.length);
     RandomPurpleItem = Math.floor(Math.random() * CaseSkinsSrc.PurpleRarity.length);
     RandomPinkItem = Math.floor(Math.random() * CaseSkinsSrc.PinkRarity.length)
     RandomRedItem = Math.floor(Math.random() * CaseSkinsSrc.RedRarity.length);
     
-
+//CARD NAME DOMS
 const PrizeRarity_Weapon = document.querySelectorAll(".PrizeRarity-Weapon")
 const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
-//console.log(index)
-   // console.log("Lenght : "+PrizeRarity_Weapon.length)
+//SETTING STYLES
     if (CurrentRarity == "Gray"){
 
     PrizeRarity.style.backgroundColor = "Gray"
@@ -259,77 +269,82 @@ const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
     PrizeImage.src = CaseSkinsSrc.SpecialRarity[0]
 
 }
+//CALLING STATTRACK FUNCTION
 StatTrackFunction(PrizeRarity_Weapon[index]);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+//CASE ROLLERCOSTER ANIMATION FUNCTION
 function CardRollAnimation(){
-    CaseCards.classList.add('RollAnimation');
-   for (let i = 0 ; i < Cards.length ; i++){
-       if (Cards[i] == Winner_Card){
-         
 
-           
+    //ADDING ANIMATION
+    CaseCards.classList.add('RollAnimation');
+
+    //CALLING RANDOM RARITY FUNCTION AND STYLING FUNTIONG FOR EACH CARD IN THE ROLLERCOSTER
+   for (let i = 0 ; i < Cards.length ; i++){
+
+    RandomRarityFunction()
+    setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
+
+    //IF THE CARD IS THE WINNING ONE
+       if (Cards[i] == Winner_Card){
+
            Winner_Card.Rarity = CurrentRarity
-           console.clear
-           //console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
-           console.log(Winner_Card)
+           console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
+
        }
-          RandomRarityFunction()
-          setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
-   
        
     }
+
+    //GETTING A RANDOM PIXEL VALUE FROM THE CURRENT ROLLERCOSTER CARD WIDTH
     RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/10)));
     
+    //MOVING THE ROLLERCOSTER
     CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/14*23 + RandomPixel)}px)`
 
    }
-
-
 CardRollAnimation()
 }
 
+//CONTINUE BUTTON FOR PRIZE DOM
 ContinueButton.addEventListener("click", () =>{
-    
+
     PrizeContainer.style.display = `none`
-    CaseList.style.display = `flex`
+    CaseList.style.display = `grid`
     OpeningCaseContainer.style.display = `none`
+
 })
 
+//CASE OPEN BUTTON FUNCTION
 function OpenButtonFunction(){
-    console.log("gay")
+    //HIDING OPEN BUTTON
     OpenButton.style.visibility = `hidden`
     
+    //PLAYING OPEN CASE SOUND
       let OpeningSound =new Audio("Audio/CSGO Case Opening Sound Effect.mp3")
         OpeningSound.play()
      
-    
+        //REMOVING THE ANIMATION CLASS AND MOVING THE ROLLERCOSTER TO THE BEGGINING
             CaseCards.classList.remove('RollAnimation');
             CaseCards.style.transform = `translate(0px)`
            
+            //CALLING THE OPEN CASE FUNCTION
             setTimeout(function(){
+
                 WorkingCase(data.Cases[CaseNumber])
                 
             },200);
       
+            //AFTER OPENNING THE CASE, THE PRIZE IMAGE SHOWS UP
             setTimeout(function(){
+
                 OpenButton.style.visibility = `visible`
                 PrizeContainer.style.display = `flex`
-                PrizeContainer.style.position = `absolute`
-                PrizeContainerIMG.src = Winner_CardIMG.src
-                let Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n")
-                PrizeContainerName.textContent = Winner_Card_Name_Array[1] + " | " + Winner_Card_Name_Array[2]
+
+                PrizeContainerIMG.src = Winner_CardIMG.src;
+                let Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n");
+                let ItemName =  Winner_Card_Name_Array[1].replace(/\s+/,' ').trim() + " | " + Winner_Card_Name_Array[2].replace(/\s+/,' ').trim();
+                PrizeContainerName.textContent = ItemName;
+
                 let W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
                 PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 80%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 97%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)},0.95) 100%) ,
                     repeating-linear-gradient(
@@ -338,46 +353,87 @@ function OpenButtonFunction(){
                     rgba(255,255,255,0) 4px,
                     rgba(255, 255, 255, 0) 4.5px
                   )`
-    
-    
-    
+                  function SaveItem () {
+
+                //localStorage.clear()
+
+                   //CURRENT ITEM OBJECT
+                    let Item = {
+                        id: crypto.randomUUID(),
+                        name: ItemName,
+                        png:Winner_CardIMG.src,
+                        Rarity: Winner_Card.Rarity,
+                        CollectionName: CollectionName
+                            }
+                
+                        
+                    let Invetory_Items;
+                    let Item_deserialized
+                   
+                    //IF THERE IS NO Inventory_Items Object then create one
+                    if ( localStorage.getItem('Inventory_Items') === null){
+                        Invetory_Items = [];
+                    } else {
+                        Item_deserialized = JSON.parse(localStorage.getItem("Inventory_Items"))
+                
+                        Invetory_Items = Item_deserialized
+                
+                    }
+                
+                    //ADD CURRENT ITEM TO THE INVENTORY ARRAY
+                Invetory_Items.push(Item)
+                              
+                let Item_serialized = JSON.stringify(Invetory_Items)
+                
+
+                //UPDATE THE INVENTORY
+                    localStorage.setItem(`Inventory_Items`, Item_serialized)
+                    Inventory();
+                  }
+ 
+    SaveItem()
             },6250);
     
     
     
 }
 
+//CALLING OPEN CASE BUTTON FUNCTION ON CLICK
 OpenButton.addEventListener("click", () =>{
 OpenButtonFunction()
-  
 }, {once : true})
 
- }
+}
 
-// api url
-const api_url = 
-      "caseData.json";
+// CASE DATA JSON PATH
+const api_url = "caseData.json";
   
-// Defining async function
+// FETCHING THE DATA
 fetch(api_url)
 .then(function (response) {
     return response.json();
 })
-    
+  
+//DOING THINGS WITH THE DATA
 .then( function (data){
 
-    
+    //MULTIPLIER SETTING
 const MultiplierButton = document.querySelector(".RarityMultiplaierButton")
 MultiplierButton.onclick = function () {
+
     OddsMultiplyingValue = document.querySelector(".RarityMuliplaierInput").value
+
     if (OddsMultiplyingValue == ""){
         OddsMultiplyingValue = 1;
     }
+
     console.log(OddsMultiplyingValue)
+
 }
    
-
+//CHOSING A CASE FROM THE CASE GRID
 for (let i = 0 ; i < Cases.length ; i ++) {
+
     Cases[i].addEventListener("click" ,() => {
 
         CaseList.style.display = `none`
@@ -386,8 +442,7 @@ for (let i = 0 ; i < Cases.length ; i ++) {
         
 
     })
-}
-   
-});
-// Calling that async function
 
+}
+
+});
