@@ -9,6 +9,7 @@
     padding: 2vw;
     display: flex;
     box-sizing: border-box;
+    display: none;
 }
 
 .Inventory_Grid{
