@@ -10,7 +10,6 @@ const Rarity_Colors = [
 function Update_Inventory () {
     let Current_Inventory = JSON.parse(localStorage.getItem("Inventory_Items"))
 for (let i in Current_Inventory){
-    console.log("gay")
     var Inventory_Item_Cloned = Invetory_Item_Model.cloneNode(true)
     Inventory_Grid.prepend(Inventory_Item_Cloned)
     const Inventory_Item_Rarity = Inventory_Item_Cloned.querySelector(".Inventory_Item_Rarity")

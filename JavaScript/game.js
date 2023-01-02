@@ -1,4 +1,14 @@
+//Consumer Grade (White)
+//Industrial Grade (Light Blue)
+//Mil-Spec (Blue)
+//Restricted (Purple)
+//Classified (Pink)
+//Covert (Red)
+//Rare Special Items (Yellow/Special)
 
+
+import CaseData from './CaseData.js';
+console.log(CaseData)
 
 //CASE DOMS
 const OpenButton = document.querySelector(".Open-Button")
@@ -24,9 +34,9 @@ const PrizeContainerIMG = document.querySelector(".PrizeContainerIMG img")
 const PrizeContainerName = document.querySelector(".PrizeContainerName")
 
 //CASE LIST DOMS
-const CaseList = document.querySelector(".CasesGrid")
+const CaseGrid = document.querySelector(".CasesGrid")
 const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
-const Cases = document.querySelectorAll(".Case")
+
 
 // RANDOM PIXEL VALUE FOR OPENING CASE
 let RandomPixel;
@@ -38,14 +48,32 @@ let OddsMultiplyingValue = 1;
 import {Inventory} from './Inventory_LS.js';
 
 
+//LOADING CASES
+const CaseGrid_Case_Model = document.querySelector(".CasesGrid_Case")
+for (let i in CaseData){
+    var CaseGrid_Case_Cloned = CaseGrid_Case_Model.cloneNode(true)
+
+    CaseGrid.append(CaseGrid_Case_Cloned)
+
+    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_IMG img").src = CaseData[i].image_url
+    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_Rarity_Name").textContent = CaseData[i].name
+}
+
+
+
+
+
+
+
 
 //CALLING THE FUNCTION WHEN A CASE IS SELECTED
- function appFunction (data , CaseNumber) {
-    
-    console.log(data);
-   
-    let CollectionName = data.Cases[CaseNumber].Name
-
+ function appFunction (CaseNumber) {
+    console.log(CaseNumber)
+    let CurrentCase = CaseData[CaseNumber].content
+    let CollectionName = CaseData[CaseNumber].name
+console.log(CollectionName)
+console.log(CurrentCase['Mil-Spec Skins'])
+console.log(CurrentCase['Restricted Skins'])
    //CARD WIDTH
     const CardWidth = Winner_Card.offsetWidth;
 
@@ -53,15 +81,12 @@ import {Inventory} from './Inventory_LS.js';
 //LOADING CASE SKINS
 function loadChanceSkins () {
 
-const CaseInfo = data.Cases[CaseNumber]
-let CaseSkinsName = CaseInfo.SkinsName;
-let CaseSkinsSrc = CaseInfo.SkinsSrc
 
 var TotalSkins = 0;
 
 //NAMING AND STYLING EACH CARD
 for (let i = 0 ; i < 1 ; i++){
-    for (let i = 0 ; i < CaseSkinsSrc.GrayRarity.length; i++){
+    for (let i = 0 ; i < CurrentCase['Consumer Grade Skins'].length; i++){
         TotalSkins = TotalSkins + 1;
         ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.GrayRarity[i]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = "Gray"
@@ -69,44 +94,50 @@ for (let i = 0 ; i < 1 ; i++){
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
     };
-    for (let i = 0 ; i < CaseSkinsSrc.BlueRarity.length; i++){
+    for (let i = 0 ; i < CurrentCase['Industrial Grade Skins'].length; i++){
+        TotalSkins = TotalSkins + 1;
+        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.GrayRarity[i]
+        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = "Gray"
+        let NameArray = CaseSkinsName.GrayRarity[i].split("|");
+        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
+        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
+    };
+    for (let i = 0 ; i < CurrentCase['Mil-Spec Skins'].length; i++){
+        console.log("CMON")
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.BlueRarity[i]
+        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Mil-Spec Skins'][i].wears)[0]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(61,87,195)`
-        let NameArray = CaseSkinsName.BlueRarity[i].split("|");
+        let NameArray = CurrentCase['Mil-Spec Skins'][i].name.split("|");
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
-        
-        
-
     }
-    for (let i = 0 ; i < CaseSkinsSrc.PurpleRarity.length; i++){
+    for (let i = 0 ; i < CurrentCase['Restricted Skins'].length; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.PurpleRarity[i]
+        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Restricted Skins'][i].wears)[0]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(107,72,195)`
-        let NameArray = CaseSkinsName.PurpleRarity[i].split("|");
+        let NameArray = CurrentCase['Restricted Skins'][i].name.split("|");
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
     }
-    for (let i = 0 ; i < CaseSkinsSrc.PinkRarity.length; i++){
+    for (let i = 0 ; i < CurrentCase['Classified Skins'].length; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.PinkRarity[i]
+        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Classified Skins'][i].wears)[0]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(166, 60, 174)`
-        let NameArray = CaseSkinsName.PinkRarity[i].split("|");
+        let NameArray = CurrentCase['Classified Skins'][i].name.split("|");
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
     }
-    for (let i = 0 ; i < CaseSkinsSrc.RedRarity.length; i++){
+    for (let i = 0 ; i < CurrentCase['Covert Skins'].length; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.RedRarity[i]
+        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Covert Skins'][i].wears)[0]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(181,73,64)`
-        let NameArray = CaseSkinsName.RedRarity[i].split("|");
+        let NameArray = CurrentCase['Covert Skins'][i].name.split("|");
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
     }
-    for (let i = 0 ; i < CaseSkinsSrc.SpecialRarity.length; i++){
+    for (let i = 0 ; i < 1; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.SpecialRarity[i]
+        ChanceCardsPrizeIMG[TotalSkins-1].src = ""
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(199,160,9)`
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = "★Rare Special Item★"
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = ""
@@ -121,25 +152,15 @@ for (let i = 0 ; i < ChanceSkins.length ; i++){
         ChanceSkins[i].style.display = `block`
     }
 
-    
-
-
+ }
 
 }
-
-}
-loadChanceSkins(data.Cases.CaseName)
+loadChanceSkins()
 
 
 
 //OPENING CASE FUNTION
 function WorkingCase(Case){
-
-const CaseInfo = Case
-let CaseRaritiesArray = CaseInfo.Rarities;
-let CaseOdds = CaseInfo.Settings.CaseOdds;
-let CaseSkinsName = CaseInfo.SkinsName;
-let CaseSkinsSrc = CaseInfo.SkinsSrc
 
 let CurrentRarity;
 let RandomRarityNumber
@@ -405,6 +426,27 @@ OpenButtonFunction()
 
 }
 
+
+
+
+const CaseGrid_Case = document.querySelectorAll(".CasesGrid_Case")
+//CHOSING A CASE FROM THE CASE GRID
+for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
+    
+    CaseGrid.children[i].addEventListener("click" ,() => {
+
+console.log(CaseGrid.children[i])
+        CaseGrid.style.display = `none`
+        OpeningCaseContainer.style.display = `flex`
+        appFunction(i)
+        
+
+    })
+}
+
+
+
+
 // CASE DATA JSON PATH
 const api_url = "caseData.json";
   
@@ -431,18 +473,7 @@ MultiplierButton.onclick = function () {
 
 }
    
-//CHOSING A CASE FROM THE CASE GRID
-for (let i = 0 ; i < Cases.length ; i ++) {
 
-    Cases[i].addEventListener("click" ,() => {
-
-        CaseList.style.display = `none`
-        OpeningCaseContainer.style.display = `flex`
-        appFunction(data, i)
-        
-
-    })
-
-}
 
 });
+
