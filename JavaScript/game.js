@@ -448,7 +448,7 @@ console.log(CaseGrid.children[i])
 
 
 // CASE DATA JSON PATH
-const api_url = "caseData.json";
+/*const api_url = "caseData.json";
   
 // FETCHING THE DATA
 fetch(api_url)
@@ -475,5 +475,5 @@ MultiplierButton.onclick = function () {
    
 
 
-});
+});*/
 
