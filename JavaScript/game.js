@@ -271,6 +271,84 @@ function CardRollAnimation(){
 
            Winner_Card.Rarity = CurrentRarity
            console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
+           let Winner_Card_Name_Array
+           let ItemName
+           let W_RGB
+
+          if (CurrentRarity != "Rare Special Item"){
+           PrizeContainerIMG.src = Winner_CardIMG.src;
+           Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n");
+           ItemName =  Winner_Card_Name_Array[1].replace(/\s+/,' ').trim() + " | " + Winner_Card_Name_Array[2].replace(/\s+/,' ').trim();
+           PrizeContainerName.textContent = ItemName;
+
+           W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
+           PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 80%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 97%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)},0.95) 100%) ,
+               repeating-linear-gradient(
+               120deg,
+               rgb(255, 255, 255,1) 0px,
+               rgba(255,255,255,0) 4px,
+               rgba(255, 255, 255, 0) 4.5px
+             )`
+               } else {
+                console.log("haha")
+                console.log()
+                let RandomKnife = Math.floor(Math.random() * CurrentCase['Rare Special Items'].length);
+                PrizeContainerIMG.src = Object.values(CurrentCase['Rare Special Items'][RandomKnife].wears)[0];
+                Winner_Card_Name_Array = CurrentCase['Rare Special Items'][RandomKnife].name;
+                ItemName = Winner_Card_Name_Array;
+                PrizeContainerName.textContent = ItemName;
+     
+                W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
+                PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgb(121, 43, 27) 80%, rgb(121, 43, 27) 97%, rgba(121, 43, 27, 0.95) 100%) ,
+                    repeating-linear-gradient(
+                    120deg,
+                    rgb(255, 255, 255,1) 0px,
+                    rgba(255,255,255,0) 4px,
+                    rgba(255, 255, 255, 0) 4.5px
+                  )`
+
+
+               }
+
+    function SaveItem () {
+    
+                //localStorage.clear()
+
+                   //CURRENT ITEM OBJECT
+                    let Item = {
+                        id: crypto.randomUUID(),
+                        name: ItemName,
+                        png:PrizeContainerIMG.src,
+                        Rarity: Winner_Card.Rarity,
+                        CollectionName: CollectionName
+                            }
+                
+                        
+                    let Invetory_Items;
+                    let Item_deserialized
+                   
+                    //IF THERE IS NO Inventory_Items Object then create one
+                    if ( localStorage.getItem('Inventory_Items') === null){
+                        Invetory_Items = [];
+                    } else {
+                        Item_deserialized = JSON.parse(localStorage.getItem("Inventory_Items"))
+                
+                        Invetory_Items = Item_deserialized
+                
+                    }
+                
+                    //ADD CURRENT ITEM TO THE INVENTORY ARRAY
+                Invetory_Items.push(Item)
+                              
+                let Item_serialized = JSON.stringify(Invetory_Items)
+                
+
+                //UPDATE THE INVENTORY
+                    localStorage.setItem(`Inventory_Items`, Item_serialized)
+                    Inventory();
+                  }
+    SaveItem()
+
 
        }
        
@@ -321,58 +399,8 @@ function OpenButtonFunction(){
                 OpenButton.style.visibility = `visible`
                 PrizeContainer.style.display = `flex`
 
-                PrizeContainerIMG.src = Winner_CardIMG.src;
-                let Winner_Card_Name_Array = Winner_Card_Name.textContent.split("\n");
-                let ItemName =  Winner_Card_Name_Array[1].replace(/\s+/,' ').trim() + " | " + Winner_Card_Name_Array[2].replace(/\s+/,' ').trim();
-                PrizeContainerName.textContent = ItemName;
-
-                let W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
-                PrizeContainer.style.background =`linear-gradient(0deg, rgba(38,38,38,.9) 0%, rgba(38,40,43,1) 7%, rgba(32,32,32,1) 18%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 80%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)}) 97%, rgba(${(W_RGB[1]-23)},${(W_RGB[2]-46)},${(W_RGB[3]-94)},0.95) 100%) ,
-                    repeating-linear-gradient(
-                    120deg,
-                    rgb(255, 255, 255,1) 0px,
-                    rgba(255,255,255,0) 4px,
-                    rgba(255, 255, 255, 0) 4.5px
-                  )`
-                  function SaveItem () {
-
-                //localStorage.clear()
-
-                   //CURRENT ITEM OBJECT
-                    let Item = {
-                        id: crypto.randomUUID(),
-                        name: ItemName,
-                        png:Winner_CardIMG.src,
-                        Rarity: Winner_Card.Rarity,
-                        CollectionName: CollectionName
-                            }
                 
-                        
-                    let Invetory_Items;
-                    let Item_deserialized
-                   
-                    //IF THERE IS NO Inventory_Items Object then create one
-                    if ( localStorage.getItem('Inventory_Items') === null){
-                        Invetory_Items = [];
-                    } else {
-                        Item_deserialized = JSON.parse(localStorage.getItem("Inventory_Items"))
-                
-                        Invetory_Items = Item_deserialized
-                
-                    }
-                
-                    //ADD CURRENT ITEM TO THE INVENTORY ARRAY
-                Invetory_Items.push(Item)
-                              
-                let Item_serialized = JSON.stringify(Invetory_Items)
-                
-
-                //UPDATE THE INVENTORY
-                    localStorage.setItem(`Inventory_Items`, Item_serialized)
-                    Inventory();
-                  }
- 
-    SaveItem()
+                 
             },6250);
     
     
