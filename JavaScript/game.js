@@ -7,7 +7,7 @@
 //Rare Special Items (Yellow/Special)
 
 
-import CaseData from './CaseData.js';
+import {CaseData} from './CaseData.js';
 console.log(CaseData)
 
 //CASE DOMS
