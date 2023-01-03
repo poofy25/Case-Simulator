@@ -1,0 +1,127 @@
+.NoWhere{
+    display: none;
+}
+
+
+.Inventory_Container{
+    height: 100%;
+    padding: 2vw;
+    display: flex;
+    box-sizing: border-box;
+    display: none;
+}
+
+.Inventory_Grid{
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+        
+      box-sizing: border-box;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-rows: max-content; 
+        gap: 0.2vw;
+    
+
+
+        display: grid;
+        justify-items: center;
+
+        overflow-y: scroll;
+        padding: 0;
+}
+
+.Inventory_Grid::-webkit-scrollbar {
+    width:2px;
+    padding: 0;
+  }
+  
+ 
+  .Inventory_Grid::-webkit-scrollbar-track { 
+    padding: 0;
+  }
+   
+ 
+  .Inventory_Grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0,0.4); 
+    border-radius: 50%;
+    padding: 0;
+  }
+  
+  
+  .Inventory_Grid::-webkit-scrollbar-thumb:hover {
+    background: transparent; 
+    padding: 0;
+  }
+
+
+
+
+
+
+.Inventory_Item{
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 8vw;
+  aspect-ratio: 9/8.25;
+  border: 1px solid rgb(75, 75, 75);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  font-family: 'DownloadedFont';
+  font-size: 12px;
+  cursor: pointer;
+  background-color: gray;
+  box-shadow: rgb(6 24 44 / 20%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+}
+
+
+.Inventory_Item_IMG{
+    background-image: url(../PNGS/Item-BG.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Inventory_Item_IMG > img {
+    height: 100%;
+}
+
+.Inventory_Item_Rarity{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    align-items: flex-start;
+    color: white;
+    font-size: clamp(2px,0.7vw,20px);
+    width: 100%;
+    height: 30%;
+    padding-left: 7%;
+    padding-right: 7%;
+    
+    background: linear-gradient(90deg, rgba(69,92,31,0.15) 0%, rgba(59,59,59,0.5) 80%);
+    text-align: start;
+    border-top: 1px solid rgba(128, 128, 128,0.5);
+    box-sizing: border-box;
+    background-color: red;
+}
+
+.Inventory_Item_Weapon{
+    text-align: center;
+    font-family: 'Mitr-Medium';
+    font-size: clamp(2px,0.575vw,20px);
+}
+.Inventory_Item_Skin {
+    text-align: center;
+    font-family: 'Mitr-Light';
+    font-size: clamp(2px,0.55vw,20px);
+}
