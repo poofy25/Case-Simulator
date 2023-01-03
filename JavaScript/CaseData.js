@@ -78,4 +78,4 @@ const CaseData = [
 ]
 
 
-export {CaseData};
+export { CaseData };

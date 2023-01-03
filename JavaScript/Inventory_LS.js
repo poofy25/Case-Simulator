@@ -1,12 +1,19 @@
 const Inventory_Grid = document.querySelector(".Inventory_Grid")
 const Invetory_Item_Model = document.querySelector(".Inventory_Item")
 const Rarity_Colors = [
-    "Gray",
     "rgb(61,87,195)",
     "rgb(107,72,195)",
     "rgb(166, 60, 174)",
     "rgb(181,73,64)",
 ]
+const Rarity_Array = [
+    "Mil-Spec",
+    "Restricted",
+    "Classified",
+    "Covert",
+    "Rare Special Item"
+]
+
 function Update_Inventory () {
     let Current_Inventory = JSON.parse(localStorage.getItem("Inventory_Items"))
 for (let i in Current_Inventory){
@@ -20,12 +27,11 @@ for (let i in Current_Inventory){
     
     Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
     Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
-    if (Current_Inventory[i].Rarity == "Gray") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
-    if (Current_Inventory[i].Rarity == "Blue") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[1];
-    if (Current_Inventory[i].Rarity == "Purple") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[2];
-    if (Current_Inventory[i].Rarity == "Pink") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[3];
-    if (Current_Inventory[i].Rarity == "Red" ||
-    Current_Inventory[i].Rarity == "Special") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[4];
+    if (Current_Inventory[i].Rarity == Rarity_Array[0]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
+    if (Current_Inventory[i].Rarity == Rarity_Array[1]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[1];
+    if (Current_Inventory[i].Rarity == Rarity_Array[2]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[2];
+    if (Current_Inventory[i].Rarity == Rarity_Array[3] ||
+    Current_Inventory[i].Rarity == Rarity_Array[4]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[3];
     
 }}
 function Inventory (){
@@ -46,12 +52,11 @@ function Inventory (){
             
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
-            if (Current_Inventory[i].Rarity == "Gray") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
-            if (Current_Inventory[i].Rarity == "Blue") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[1];
-            if (Current_Inventory[i].Rarity == "Purple") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[2];
-            if (Current_Inventory[i].Rarity == "Pink") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[3];
-            if (Current_Inventory[i].Rarity == "Red" ||
-            Current_Inventory[i].Rarity == "Special") Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[4];
+            if (Current_Inventory[i].Rarity == Rarity_Array[0]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
+            if (Current_Inventory[i].Rarity == Rarity_Array[1]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[1];
+            if (Current_Inventory[i].Rarity == Rarity_Array[2]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[2];
+            if (Current_Inventory[i].Rarity == Rarity_Array[3] ||
+            Current_Inventory[i].Rarity == Rarity_Array[4]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[3];
 
 
 

@@ -68,12 +68,11 @@ for (let i in CaseData){
 
 //CALLING THE FUNCTION WHEN A CASE IS SELECTED
  function appFunction (CaseNumber) {
-    console.log(CaseNumber)
+
     let CurrentCase = CaseData[CaseNumber].content
     let CollectionName = CaseData[CaseNumber].name
 console.log(CollectionName)
-console.log(CurrentCase['Mil-Spec Skins'])
-console.log(CurrentCase['Restricted Skins'])
+
    //CARD WIDTH
     const CardWidth = Winner_Card.offsetWidth;
 
@@ -86,24 +85,8 @@ var TotalSkins = 0;
 
 //NAMING AND STYLING EACH CARD
 for (let i = 0 ; i < 1 ; i++){
-    for (let i = 0 ; i < CurrentCase['Consumer Grade Skins'].length; i++){
-        TotalSkins = TotalSkins + 1;
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.GrayRarity[i]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = "Gray"
-        let NameArray = CaseSkinsName.GrayRarity[i].split("|");
-        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
-        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
-    };
-    for (let i = 0 ; i < CurrentCase['Industrial Grade Skins'].length; i++){
-        TotalSkins = TotalSkins + 1;
-        ChanceCardsPrizeIMG[TotalSkins-1].src = CaseSkinsSrc.GrayRarity[i]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = "Gray"
-        let NameArray = CaseSkinsName.GrayRarity[i].split("|");
-        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
-        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
-    };
+
     for (let i = 0 ; i < CurrentCase['Mil-Spec Skins'].length; i++){
-        console.log("CMON")
         TotalSkins = TotalSkins + 1
         ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Mil-Spec Skins'][i].wears)[0]
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(61,87,195)`
@@ -137,7 +120,7 @@ for (let i = 0 ; i < 1 ; i++){
     }
     for (let i = 0 ; i < 1; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = ""
+        ChanceCardsPrizeIMG[TotalSkins-1].src = "PNGS/Cases/Winter_Offensive_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(199,160,9)`
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = "★Rare Special Item★"
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = ""
@@ -160,16 +143,22 @@ loadChanceSkins()
 
 
 //OPENING CASE FUNTION
-function WorkingCase(Case){
+function WorkingCase(){
 
 let CurrentRarity;
 let RandomRarityNumber
+const RaritiesArray = [
+    "Mil-Spec",
+    "Restricted",
+    "Classified",
+    "Covert",
+    "Rare Special Item"
+]
 
-let RandomGrayItem;
-let RandomBlueItem;
-let RandomPurpleItem;
-let RandomPinkItem;
-let RandomRedItem;
+let Random_MilSpec_Item;
+let Random_Restricted_Item;
+let Random_Classified_Item;
+let Random_Covert_Item;
 
 
 
@@ -177,41 +166,33 @@ let RandomRedItem;
 
 function RandomRarityFunction() {
 
-//ODDS FROM JSON FILE
-const GrayOdds = Number(CaseOdds.GrayRarity.split("-"));
-const BlueOdds = CaseOdds.BlueRarity.split("-");
-const PurpleOdds = CaseOdds.PurpleRarity.split("-");
-const PinkOdds = CaseOdds.PinkRarity.split("-");
-const RedOdds = CaseOdds.RedRarity.split("-");
-const SpecialOdds = CaseOdds.SpecialRarity.split("-");
+//ODDS
+const MaxOdds = 10000;
+const BlueOdds = 2000;
+const PurpleOdds = 400;
+const PinkOdds = 80;
+const RedOdds = 25;
+const MinOdds = 0;
 
 
 
-let BlueOddsNumber = Number(BlueOdds[0]) * OddsMultiplyingValue;
-//CALCULATING ODDS
-if (CaseRaritiesArray[0] == "Blue"){
 
-if (BlueOddsNumber > Number(BlueOdds[1])){
-    BlueOddsNumber = 10000;
-}
     RandomRarityNumber = Math.floor(Math.random() * 10000) + 1;
-    if (RandomRarityNumber > BlueOddsNumber && RandomRarityNumber <= BlueOdds[1]){
-        CurrentRarity = CaseRaritiesArray[0]
-    } else if (RandomRarityNumber > Number(PurpleOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(BlueOdds[0]) * OddsMultiplyingValue){
-        CurrentRarity = CaseRaritiesArray[1]
-    } else if (RandomRarityNumber > Number(PinkOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(PurpleOdds[0]) * OddsMultiplyingValue){
-        CurrentRarity = CaseRaritiesArray[2]
-    } else if (RandomRarityNumber > Number(RedOdds[0]) * OddsMultiplyingValue && RandomRarityNumber <= Number(PinkOdds[0]) * OddsMultiplyingValue){
-        CurrentRarity = CaseRaritiesArray[3]
-    } else if (RandomRarityNumber > SpecialOdds[0] && RandomRarityNumber <= Number(RedOdds[0]) * OddsMultiplyingValue){
-        CurrentRarity = CaseRaritiesArray[4]
+    if (RandomRarityNumber > BlueOdds * OddsMultiplyingValue && RandomRarityNumber <= MaxOdds){
+        CurrentRarity = RaritiesArray[0]
+    } else if (RandomRarityNumber > PurpleOdds * OddsMultiplyingValue && RandomRarityNumber <= BlueOdds * OddsMultiplyingValue){
+        CurrentRarity = RaritiesArray[1]
+    } else if (RandomRarityNumber > PinkOdds * OddsMultiplyingValue && RandomRarityNumber <= PurpleOdds * OddsMultiplyingValue){
+        CurrentRarity = RaritiesArray[2]
+    } else if (RandomRarityNumber > RedOdds * OddsMultiplyingValue && RandomRarityNumber <= PinkOdds * OddsMultiplyingValue){
+        CurrentRarity = RaritiesArray[3]
+    } else if (RandomRarityNumber > MinOdds && RandomRarityNumber <= RedOdds * OddsMultiplyingValue){
+        CurrentRarity = RaritiesArray[4]
     }
 
-} else if (CaseRaritiesArray[0] == Gray){
-       console.log("NEEDS TO BE DONE")
 }
 
-}
+
 
 //STATTRACK ITEM FUNCTION
 let StatTrack;
@@ -230,66 +211,45 @@ if (StatTrackRandomNumber == 1){
 //SETTING CARDS STYLE IN CASE ROLLERCOSTER
 function setPrizeStyles(index , PrizeImage , PrizeRarity){
     //RANDOM ITEM FROM THE LENGHT OF RARITY IN A CASE
-    RandomGrayItem = Math.floor(Math.random() * CaseSkinsSrc.GrayRarity.length)
-    RandomBlueItem = Math.floor(Math.random() * CaseSkinsSrc.BlueRarity.length);
-    RandomPurpleItem = Math.floor(Math.random() * CaseSkinsSrc.PurpleRarity.length);
-    RandomPinkItem = Math.floor(Math.random() * CaseSkinsSrc.PinkRarity.length)
-    RandomRedItem = Math.floor(Math.random() * CaseSkinsSrc.RedRarity.length);
+    Random_MilSpec_Item = Math.floor(Math.random() * CurrentCase['Mil-Spec Skins'].length);
+    Random_Restricted_Item = Math.floor(Math.random() * CurrentCase['Restricted Skins'].length);
+    Random_Classified_Item = Math.floor(Math.random() * CurrentCase['Classified Skins'].length)
+    Random_Covert_Item = Math.floor(Math.random() * CurrentCase['Covert Skins'].length);
     
 //CARD NAME DOMS
 const PrizeRarity_Weapon = document.querySelectorAll(".PrizeRarity-Weapon")
 const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
 //SETTING STYLES
-    if (CurrentRarity == "Gray"){
-
-    PrizeRarity.style.backgroundColor = "Gray"
-    let NameArray = CaseSkinsName.GrayRarity[RandomGrayItem].split("|");
-    PrizeRarity_Weapon[index].textContent = NameArray[0];
-    PrizeRarity_SkinName[index].textContent = NameArray[1];
-    PrizeImage.src = CaseSkinsSrc.GrayRarity[RandomGrayItem]
-
-} else if (CurrentRarity == "Blue") {
-
+let NameArray = [];
+    
+if (CurrentRarity == RaritiesArray[0]) {
+    NameArray = CurrentCase['Mil-Spec Skins'][Random_MilSpec_Item].name.split("|");
     PrizeRarity.style.backgroundColor = `rgb(61,87,195)`
-    let NameArray = CaseSkinsName.BlueRarity[RandomBlueItem].split("|");
-    
-    PrizeRarity_Weapon[index].textContent = NameArray[0];
-    PrizeRarity_SkinName[index].textContent = NameArray[1];
-    PrizeImage.src = CaseSkinsSrc.BlueRarity[RandomBlueItem]
- 
-} else if (CurrentRarity == "Purple") {
-
+    PrizeImage.src = Object.values(CurrentCase['Mil-Spec Skins'][Random_MilSpec_Item].wears)[0]
+} else if (CurrentRarity == RaritiesArray[1]) {
+    NameArray = CurrentCase['Restricted Skins'][Random_Restricted_Item].name.split("|");
     PrizeRarity.style.backgroundColor = `rgb(107,72,195)`
-    let NameArray = CaseSkinsName.PurpleRarity[RandomPurpleItem].split("|");
-    
-    PrizeRarity_Weapon[index].textContent = NameArray[0];
-    PrizeRarity_SkinName[index].textContent = NameArray[1];
-    PrizeImage.src = CaseSkinsSrc.PurpleRarity[RandomPurpleItem]
-
-} else if (CurrentRarity == "Pink") {
-
+    PrizeImage.src = Object.values(CurrentCase['Restricted Skins'][Random_Restricted_Item].wears)[0]
+} else if (CurrentRarity == RaritiesArray[2]) {
+    NameArray = CurrentCase['Classified Skins'][Random_Classified_Item].name.split("|");
     PrizeRarity.style.backgroundColor = `rgb(166, 60, 174)`
-    let NameArray = CaseSkinsName.PinkRarity[RandomPinkItem].split("|");
-    PrizeRarity_Weapon[index].textContent = NameArray[0];
-    PrizeRarity_SkinName[index].textContent = NameArray[1];
-    PrizeImage.src = CaseSkinsSrc.PinkRarity[RandomPinkItem]
-
-} else if (CurrentRarity == "Red") {
-
+    PrizeImage.src = Object.values(CurrentCase['Classified Skins'][Random_Classified_Item].wears)[0]
+} else if (CurrentRarity == RaritiesArray[3]) {
+    NameArray = CurrentCase['Covert Skins'][Random_Covert_Item].name.split("|");
     PrizeRarity.style.backgroundColor = `rgb(181,73,64)`
-    let NameArray = CaseSkinsName.RedRarity[RandomRedItem].split("|");
-    PrizeRarity_Weapon[index].textContent = NameArray[0];
-    PrizeRarity_SkinName[index].textContent = NameArray[1];
-    PrizeImage.src = CaseSkinsSrc.RedRarity[RandomRedItem]
-
-} else if (CurrentRarity == "Special") {
-
-    PrizeRarity.style.backgroundColor = `rgb(199,160,9)`
-    PrizeRarity_Weapon[index].textContent = CaseSkinsName.SpecialRarity[0];
-    PrizeRarity_SkinName[index].textContent = "";
-    PrizeImage.src = CaseSkinsSrc.SpecialRarity[0]
-
+    PrizeImage.src = Object.values(CurrentCase['Covert Skins'][Random_Covert_Item].wears)[0]
 }
+PrizeRarity_Weapon[index].textContent = NameArray[0];
+PrizeRarity_SkinName[index].textContent = NameArray[1];
+if (CurrentRarity == RaritiesArray[4]) {
+    //NameArray = CurrentCase['Rare Special Items'][i].name.split("|");
+    PrizeRarity.style.backgroundColor = `rgb(199,160,9)`
+    PrizeImage.src = "PNGS/Cases/Winter_Offensive_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
+    PrizeRarity_Weapon[index].textContent = "★Rare Special Item★"
+}
+
+
+
 //CALLING STATTRACK FUNCTION
 StatTrackFunction(PrizeRarity_Weapon[index]);
 }
@@ -325,12 +285,12 @@ function CardRollAnimation(){
    }
 CardRollAnimation()
 }
-
+ 
 //CONTINUE BUTTON FOR PRIZE DOM
 ContinueButton.addEventListener("click", () =>{
 
     PrizeContainer.style.display = `none`
-    CaseList.style.display = `grid`
+    CaseGrid.style.display = `grid`
     OpeningCaseContainer.style.display = `none`
 
 })
@@ -351,7 +311,7 @@ function OpenButtonFunction(){
             //CALLING THE OPEN CASE FUNCTION
             setTimeout(function(){
 
-                WorkingCase(data.Cases[CaseNumber])
+                WorkingCase()
                 
             },200);
       
@@ -424,7 +384,7 @@ OpenButton.addEventListener("click", () =>{
 OpenButtonFunction()
 }, {once : true})
 
-}
+ }
 
 
 
@@ -435,45 +395,21 @@ for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
     
     CaseGrid.children[i].addEventListener("click" ,() => {
 
-console.log(CaseGrid.children[i])
         CaseGrid.style.display = `none`
         OpeningCaseContainer.style.display = `flex`
         appFunction(i)
         
-
     })
 }
 
 
 
-
-// CASE DATA JSON PATH
-/*const api_url = "caseData.json";
-  
-// FETCHING THE DATA
-fetch(api_url)
-.then(function (response) {
-    return response.json();
-})
-  
-//DOING THINGS WITH THE DATA
-.then( function (data){
-
-    //MULTIPLIER SETTING
+//MULTIPLIER SETTING
 const MultiplierButton = document.querySelector(".RarityMultiplaierButton")
 MultiplierButton.onclick = function () {
-
     OddsMultiplyingValue = document.querySelector(".RarityMuliplaierInput").value
-
     if (OddsMultiplyingValue == ""){
         OddsMultiplyingValue = 1;
     }
-
     console.log(OddsMultiplyingValue)
-
 }
-   
-
-
-});*/
-
