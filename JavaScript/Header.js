@@ -28,17 +28,27 @@ const UI_Array = [
 ]
 
 function switching_UI (Selected_UI) {
+    if (Selected_UI === undefined) return;
+    if (Selected_UI.style.display != "none") return;
+
     for (let i in Header_Array){
         if (UI_Array[i] == ""){
         } else{
         UI_Array[i].style.display = "none"
+       
        }
       
     }
     Selected_UI.style.display = "flex"
+    if (Selected_UI === Game_Children[1]) {
+        
+        Game_Children[1].children[1].style.display= "none"
+        Game_Children[1].children[1].children[3].style.display= "none"
+        Game_Children[1].children[0].style.display = "grid"
+       }
+
 }
 
-//switching_UI(Game_Children[1])
 for (let i = 0 ; i < Header_Container.children.length ; i++){
     Header_Container.children[i].onclick = () => {
 

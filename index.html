@@ -13,7 +13,12 @@
 
 <header class="Header_Container">
     <button class="Play_Button">PLAY</button>
-    <button class="Invetory_Button">INVETORY</button>
+    <button class="Invetory_Button">
+        INVETORY
+        <div class="Inventory_New_Items">
+            <p id="Inv_New_Items_Count">25</p> New Items!
+        </div>
+    </button>
     <button class="Cases_Button">CASES</button>
     <button class="Awards_Button">AWARDS</button>
     <button class="Options_Button">OPTIONS</button>
@@ -51,13 +56,13 @@
 
     <div class="Game_UI">
 
-        <div class="Inventory_Container">
+        <div class="Inventory_Container" style="display:none">
           <div class="Inventory_Grid">
             
           </div>
         </div>
 
-        <div class="CaseListContainer">
+        <div class="CaseListContainer" style="display: flex;">
             <div class="CasesGrid">
                 
         

@@ -35,6 +35,7 @@ const PrizeContainerName = document.querySelector(".PrizeContainerName")
 
 //CASE LIST DOMS
 const CaseGrid = document.querySelector(".CasesGrid")
+const Case_Items_Container = document.querySelector(".CaseItemsContainer")
 const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
 
 
@@ -120,7 +121,7 @@ for (let i = 0 ; i < 1 ; i++){
     }
     for (let i = 0 ; i < 1; i++){
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = "PNGS/Cases/Winter_Offensive_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
+        ChanceCardsPrizeIMG[TotalSkins-1].src = "PNGS/Yellow_Special_Item.png"
         ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(199,160,9)`
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = "★Rare Special Item★"
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = ""
@@ -244,7 +245,7 @@ PrizeRarity_SkinName[index].textContent = NameArray[1];
 if (CurrentRarity == RaritiesArray[4]) {
     //NameArray = CurrentCase['Rare Special Items'][i].name.split("|");
     PrizeRarity.style.backgroundColor = `rgb(199,160,9)`
-    PrizeImage.src = "PNGS/Cases/Winter_Offensive_Weapon_Case/Special_Skins/Yellow_Special_Item.png"
+    PrizeImage.src = "PNGS/Yellow_Special_Item.png"
     PrizeRarity_Weapon[index].textContent = "★Rare Special Item★"
 }
 
@@ -369,6 +370,7 @@ ContinueButton.addEventListener("click", () =>{
 
     PrizeContainer.style.display = `none`
     CaseGrid.style.display = `grid`
+    Case_Items_Container.classList.add("removed");
     OpeningCaseContainer.style.display = `none`
 
 })
@@ -394,15 +396,39 @@ function OpenButtonFunction(){
             },200);
       
             //AFTER OPENNING THE CASE, THE PRIZE IMAGE SHOWS UP
-            setTimeout(function(){
-
+            function ShowPrizeContainerFunction () {
                 OpenButton.style.visibility = `visible`
                 PrizeContainer.style.display = `flex`
-
-                
-                 
-            },6250);
+            }
+            const timeoutID = setTimeout(ShowPrizeContainerFunction,6250);
+            
+        //QUICK OPENING 
+        var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutationRecord) {
+ 
+                    clearTimeout(timeoutID);
+                    ShowPrizeContainerFunction();
+                    
+                    PrizeContainer.style.display = `none`
+                    OpeningSound.pause();
+                    OpeningSound.currentTime = 0;
+                   
+                });    
+        });
+ 
+        const Case_List_Container = document.querySelector(".CaseListContainer")
+        observer.observe(Case_List_Container, { attributes : true, attributeFilter : ['style'] });
     
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutationRecord) {
+
+                console.log("GAY")
+               
+            }, {once : true});    
+    });
+
+    
+    observer.observe(Case_Items_Container, { attributes : true, attributeFilter : ['style','class'] });
     
     
 }
@@ -424,6 +450,7 @@ for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
     CaseGrid.children[i].addEventListener("click" ,() => {
 
         CaseGrid.style.display = `none`
+        Case_Items_Container.classList.add("added");
         OpeningCaseContainer.style.display = `flex`
         appFunction(i)
         
