@@ -366,14 +366,18 @@ CardRollAnimation()
 }
  
 //CONTINUE BUTTON FOR PRIZE DOM
-ContinueButton.addEventListener("click", () =>{
+ContinueButton.onclick = () =>{
 
     PrizeContainer.style.display = `none`
     CaseGrid.style.display = `grid`
-    Case_Items_Container.classList.add("removed");
+
+    function addAnimation (item){
+        item.classList.remove("Animation")
+      }
+      setTimeout(() =>{  ChanceSkins.forEach(addAnimation)}, 100)
     OpeningCaseContainer.style.display = `none`
 
-})
+}
 
 //CASE OPEN BUTTON FUNCTION
 function OpenButtonFunction(){
@@ -419,24 +423,13 @@ function OpenButtonFunction(){
         const Case_List_Container = document.querySelector(".CaseListContainer")
         observer.observe(Case_List_Container, { attributes : true, attributeFilter : ['style'] });
     
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutationRecord) {
-
-                console.log("GAY")
-               
-            }, {once : true});    
-    });
-
-    
-    observer.observe(Case_Items_Container, { attributes : true, attributeFilter : ['style','class'] });
-    
     
 }
 
 //CALLING OPEN CASE BUTTON FUNCTION ON CLICK
-OpenButton.addEventListener("click", () =>{
+OpenButton.onclick = () =>{
 OpenButtonFunction()
-}, {once : true})
+}
 
  }
 
@@ -447,14 +440,32 @@ const CaseGrid_Case = document.querySelectorAll(".CasesGrid_Case")
 //CHOSING A CASE FROM THE CASE GRID
 for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
     
-    CaseGrid.children[i].addEventListener("click" ,() => {
+    CaseGrid.children[i].onclick = () => {
+
+        if (ChanceSkins[0].classList.contains("Animation")){
+            function removeAnimation (item){
+                    item.classList.remove("Animation")
+            }
+           ChanceSkins.forEach(removeAnimation)
+        }
+
+
 
         CaseGrid.style.display = `none`
-        Case_Items_Container.classList.add("added");
+        let time = 0;
+        function addAnimation (item){
+            time = time + 40;
+            setTimeout(() =>{
+                item.classList.add("Animation")
+               }, time)
+         
+        }
+        setTimeout(() =>{  ChanceSkins.forEach(addAnimation)}, 100)
+      
         OpeningCaseContainer.style.display = `flex`
         appFunction(i)
         
-    })
+    }
 }
 
 

@@ -142,6 +142,9 @@ box-sizing: border-box;
     box-shadow: rgba(0, 0, 0,0.6) 0px 6px 4px -1px;
     z-index: 2;
 }
+.Inspecting_Case{
+display: flex;
+}
 .ViewPort{
     display: flex;
     position: relative;
@@ -337,9 +340,20 @@ font-size: clamp(5px,1.25vw,20px);
 
 
 .SkinItem{
+    opacity: 0;
     width:  7vw;
     aspect-ratio: 9/8.25;
     box-shadow: rgba(6, 24, 44, 0.2) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    transform: translateY(-20%);
+    filter: blur(1px);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.29, 0.83);
+
+}
+.Animation{
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0px);
+ 
 }
 
 
@@ -514,3 +528,7 @@ font-family:'Mitr-Regular';
 background: linear-gradient(0deg, rgba(69,92,31,1) 0%, rgba(77,107,32,1) 50%, rgba(89,113,45,1) 100%);
 box-shadow: rgba(22,31,6, 1) 0px 1px 2px 0px, rgba(22,31,6, .5) 0px 2px 6px 2px;
 }
+
+
+
+
