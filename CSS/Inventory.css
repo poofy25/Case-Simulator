@@ -5,15 +5,60 @@
 
 .Inventory_Container{
     height: 100%;
-    padding: 2vw;
+    width: 100%;
+    padding-bottom: 2vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     display: none;
 }
+.Inventory-Selector{
+width: 100%;
+height: 6vh;
+background-color: rgb(30,41,50);
+margin-bottom: 2vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.Inventory-Selector-Button-Active{
+  transition: 1s;
+  background-color: rgb(72,100,138);
+  background: linear-gradient(0deg, rgba(42,80,133,1) 0%, rgba(72,100,138,1) 100%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.Inventory-Selector > button {
+  height: 82%;
+  width: 17.5%;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.05rem;
+  transition: 1s;
+  color: rgb(138,162,186);
+  font-family: 'Mitr-Regular';
+  cursor: pointer;
+}
+
+.Inventory-Filters-Container{
+  width: 100%;
+  height: 4vh;
+  margin-bottom: 1vh;
+  background-color: darkcyan;
+}
+
+
+
 
 .Inventory_Grid{
     background-color: transparent;
-    width: 100%;
+    width: 94%;
     height: auto;
         
       box-sizing: border-box;
@@ -30,6 +75,9 @@
 
         overflow-y: scroll;
         padding: 0;
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+        margin-top: 2vh;
 }
 
 .Inventory_Grid::-webkit-scrollbar {

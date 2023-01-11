@@ -67,3 +67,18 @@ function Inventory (){
 }
 Update_Inventory();
 export { Inventory };
+
+
+
+const Inventory_Buttons = document.querySelectorAll(".Inventory-Selector button")
+for (let i = 0 ; i < Inventory_Buttons.length ; i ++) {
+    Inventory_Buttons[i].onclick = () =>{
+        Inventory_Buttons[i].classList.add("Inventory-Selector-Button-Active")
+        if (i === 1){
+        Inventory_Buttons[i-1].classList.remove("Inventory-Selector-Button-Active")
+        }
+        if (i === 0){
+            Inventory_Buttons[i+1].classList.remove("Inventory-Selector-Button-Active")
+            }
+    }
+}

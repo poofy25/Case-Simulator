@@ -69,11 +69,11 @@ const CaseData = [
     operation_phoenix_weapon_case ,
     csgo_weapon_case_3 ,
     esports_2013_winter_case ,
-    winter_offensive_weapon_case ,
-    csgo_weapon_case_2 ,
-    operation_bravo_case ,
-    csgo_weapon_case ,
-    esports_2013_case ,
+    //winter_offensive_weapon_case ,
+    //csgo_weapon_case_2 ,
+    //operation_bravo_case ,
+    //csgo_weapon_case ,
+    //esports_2013_case ,
     
 ]
 
