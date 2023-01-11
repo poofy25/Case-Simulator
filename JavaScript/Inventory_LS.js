@@ -13,7 +13,7 @@ const Rarity_Array = [
     "Covert",
     "Rare Special Item"
 ]
-
+const Item_Price_LinkModel = "https://steamcommunity.com/market/priceoverview/?country=DE&currency=3&appid=730&market_hash_name="
 function Update_Inventory () {
     let Current_Inventory = JSON.parse(localStorage.getItem("Inventory_Items"))
 for (let i in Current_Inventory){
@@ -24,7 +24,55 @@ for (let i in Current_Inventory){
     Inventory_Item_Cloned.querySelector(".Inventory_Item_IMG img").src = Current_Inventory[i].png;
 
     let ItemNameArray = (Current_Inventory[i].name).split(" | ")
-    
+    Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
+
+
+
+
+
+    let Item_Price_Name_Link;
+    Item_Price_Name_Link = Current_Inventory[i].name.replace(" " , "%20") + "%20%28Factory%20New%29";
+    Item_Price_Name_Link = Item_Price_Name_Link.replace("| " , "%7C%20")
+    //Item_Price_Name_Link = Item_Price_Name_Link.replace("(" , "%28")
+    //Item_Price_Name_Link = Item_Price_Name_Link.replace(")" , "%29")
+
+    let Item_Price_API_LINK = Item_Price_LinkModel + Item_Price_Name_Link;
+    console.log(Item_Price_API_LINK)
+    Current_Inventory[i].name
+const URLheaders = new Headers()
+    URLheaders.append('Access-Control-Allow-Origin' , "http://127.0.0.1:5500/")
+
+
+ const options  = {
+    method : 'GET',
+    mode:'no-cors',
+     credentials: 'include',
+     headers: URLheaders,
+ }
+
+
+   
+      fetch('https://steamcommunity.com/market/priceoverview/?country=DE&currency=3&appid=730&market_hash_name=AK-47%20%7C%20Redline%20%28Field-Tested%29', options)
+      
+      .then(response => response.json())
+      .then(data => console.log(data))
+
+
+   /* fetch(Item_Price_API_LINK , {
+        mode: 'cors',
+        method: 'POST',
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data)
+    })*/
+
+
+    //Item_Price_USD = 
+    //Inventory_Item_Cloned.Item_Price = Item_Price_USD
+
     Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
     Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
     if (Current_Inventory[i].Rarity == Rarity_Array[0]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
@@ -49,6 +97,7 @@ function Inventory (){
             Inventory_Item_Cloned.querySelector(".Inventory_Item_IMG img").src = Current_Inventory[i].png;
         
             let ItemNameArray = (Current_Inventory[i].name).split(" | ")
+            Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
             
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
@@ -81,4 +130,19 @@ for (let i = 0 ; i < Inventory_Buttons.length ; i ++) {
             Inventory_Buttons[i+1].classList.remove("Inventory-Selector-Button-Active")
             }
     }
+}
+
+
+
+function getItemPrice (Item) {
+    console.log(Item)
+}
+
+const Inventory_Skins = document.querySelectorAll(".Inventory_Item")
+
+for (let i = 0 ; i < Inventory_Skins.length; i++){
+    Inventory_Skins[i].addEventListener("mouseenter", () => {
+        console.log(Inventory_Skins[i].ItemName)
+        fetch
+    });
 }
