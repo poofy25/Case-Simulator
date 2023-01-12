@@ -9,14 +9,13 @@
     padding-bottom: 2vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     box-sizing: border-box;
-    display: none;
+    position:relative;
 }
 .Inventory-Selector{
 width: 100%;
-height: 6vh;
 background-color: rgb(30,41,50);
 margin-bottom: 2vh;
 display: flex;
@@ -30,7 +29,10 @@ align-items: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .Inventory-Selector > button {
-  height: 82%;
+  height: 80%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding: 0;
   width: 17.5%;
   background-color: transparent;
   text-align: center;
@@ -48,7 +50,6 @@ align-items: center;
 
 .Inventory-Filters-Container{
   width: 100%;
-  height: 4vh;
   margin-bottom: 1vh;
   background-color: darkcyan;
 }
@@ -56,21 +57,17 @@ align-items: center;
 
 
 
-.Inventory_Grid{
+.Inventory_Skins_Grid{
     background-color: transparent;
     width: 94%;
     height: auto;
         
       box-sizing: border-box;
 
-        display: grid;
+        display: none;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-auto-rows: max-content; 
         gap: 0.2vw;
-    
-
-
-        display: grid;
         justify-items: center;
 
         overflow-y: scroll;
@@ -80,25 +77,25 @@ align-items: center;
         margin-top: 2vh;
 }
 
-.Inventory_Grid::-webkit-scrollbar {
+.Inventory_Skins_Grid::-webkit-scrollbar {
     width:2px;
     padding: 0;
   }
   
  
-  .Inventory_Grid::-webkit-scrollbar-track { 
+  .Inventory_Skins_Grid::-webkit-scrollbar-track { 
     padding: 0;
   }
    
  
-  .Inventory_Grid::-webkit-scrollbar-thumb {
+  .Inventory_Skins_Grid::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0,0.4); 
     border-radius: 50%;
     padding: 0;
   }
   
   
-  .Inventory_Grid::-webkit-scrollbar-thumb:hover {
+  .Inventory_Skins_Grid::-webkit-scrollbar-thumb:hover {
     background: transparent; 
     padding: 0;
   }
@@ -160,7 +157,7 @@ align-items: center;
     text-align: start;
     border-top: 1px solid rgba(128, 128, 128,0.5);
     box-sizing: border-box;
-    background-color: red;
+    background-color: white;
 }
 
 .Inventory_Item_Weapon{
@@ -172,4 +169,127 @@ align-items: center;
     text-align: center;
     font-family: 'Mitr-Light';
     font-size: clamp(2px,0.55vw,20px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CASES GRID*/
+
+
+
+
+.Inventory_Cases_Grid{
+  background-color: transparent;
+  width: 94%;
+  height: auto;
+      
+    box-sizing: border-box;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-auto-rows: max-content; 
+      gap: 0.2vw;
+      justify-items: center;
+
+      overflow-y: scroll;
+      padding: 0;
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+      margin-top: 2vh;
+}
+.Inventory_Cases_Grid::-webkit-scrollbar {
+  width:2px;
+  padding: 0;
+}
+
+
+.Inventory_Cases_Grid::-webkit-scrollbar-track { 
+  padding: 0;
+}
+ 
+
+.Inventory_Cases_Grid::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0,0.4); 
+  border-radius: 50%;
+  padding: 0;
+}
+
+
+.Inventory_Cases_Grid::-webkit-scrollbar-thumb:hover {
+  background: transparent; 
+  padding: 0;
+}
+.CasesGrid_Case{
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 8vw;
+  aspect-ratio: 9/8.25;
+  border: 1px solid rgb(75, 75, 75);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+  font-family: 'DownloadedFont';
+  font-size: 12px;
+  cursor: pointer;
+  background-color: gray;
+  box-shadow: rgb(6 24 44 / 20%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+}
+.CasesGrid_Case_IMG{
+  background-image: url(../PNGS/Item-BG.png);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CasesGrid_Case_IMG > img{
+  height: 125%;
+}
+.CasesGrid_Case_Rarity_Name{
+
+  
+
+ 
+
+  text-shadow: 2px 2px 0.5px rgba(0, 0, 0,0.5);
+
+
+
+
+  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    align-items: flex-start;
+    color: white;
+    font-size: clamp(2px,0.60vw,20px);
+    width: 100%;
+    height: 30%;
+    padding-left: 7%;
+    padding-right: 7%;
+    text-align: start;
+    border-top: 1px solid rgba(128, 128, 128,0.5);
+    box-sizing: border-box;
+    background: linear-gradient(90deg, rgba(184, 184, 184, 0.4) 0%, rgba(59,59,59,0.5) 90%);
+    font-family: 'Mitr-Regular';
+
 }

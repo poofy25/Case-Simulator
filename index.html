@@ -14,13 +14,13 @@
 <header class="Header_Container">
     <button class="Play_Button">PLAY</button>
     <button class="Invetory_Button">
-        INVETORY
+        INVENTORY
         <div class="Inventory_New_Items">
             <p id="Inv_New_Items_Count">25</p> New Items!
         </div>
     </button>
-    <button class="Cases_Button">CASES</button>
-    <button class="Awards_Button">AWARDS</button>
+    <button class="Cases_Button">AWARDS</button>
+    <button class="Awards_Button">STATISTICS</button>
     <button class="Options_Button">OPTIONS</button>
 </header>
 
@@ -56,493 +56,503 @@
 
     <div class="Game_UI">
 
-        <div class="Inventory_Container" style="display:none">
+        <div class="Inventory_Container" style="display:flex">
+
             <div class="Inventory-Selector">
-                <button id="Inventory-Selector-Skins-Button" class="Inventory-Selector-Button-Active">Skins</button>
-                <button id="Inventory-Selector-Cases-Button">Cases</button>
+                <button id="Inventory-Selector-Skins-Button">Skins</button>
+                <button id="Inventory-Selector-Cases-Button" class="Inventory-Selector-Button-Active">Cases</button>
             </div>
+
             <div class="Inventory-Filters-Container"></div>
-          <div class="Inventory_Grid">
+
+            <div class="Inventory_Skins_Grid">
             
-          </div>
+            </div>
+
+            <div class="Inventory_Cases_Grid">
+            </div>
+
+            <div class="OpeningCaseContainer">
+        
+                <div class="OpeningContainer">
+                <div class="ViewPort">
+                
+                    <div class="ViewPortGradient"></div>
+                    <div class="ViewPortLightGradient"></div>
+                    <div class="Arrows"></div>
+                <div class="Case-Container">
+                
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="Case-Card">
+                        <div class="PrizeIMG">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                   <div class="Case-Card Winner_Card">
+                   
+                        <div class="PrizeIMG">
+                            <img src="">
+                        </div>
+                        <div class="PrizeRarity">
+                            <p class="PrizeRarity-Weapon">MP7</p>
+                            <p class="PrizeRarity-SkinName"> Shuffle</p>
+                        </div>
+                   
+                   </div>
+                  
+                   <div class="Case-Card">
+                    <div class="PrizeIMG">
+                       <img src="">
+                    </div>
+                    <div class="PrizeRarity">
+                        <p class="PrizeRarity-Weapon">MP7</p>
+                        <p class="PrizeRarity-SkinName"> Shuffle</p>
+                    </div>
+                </div>
+                <div class="Case-Card">
+                    <div class="PrizeIMG">
+                       <img src="">
+                    </div>
+                    <div class="PrizeRarity">
+                        <p class="PrizeRarity-Weapon">MP7</p>
+                        <p class="PrizeRarity-SkinName"> Shuffle</p>
+                    </div>
+                </div>
+                <div class="Case-Card">
+                    <div class="PrizeIMG">
+                       <img src="">
+                    </div>
+                    <div class="PrizeRarity">
+                        <p class="PrizeRarity-Weapon">MP7</p>
+                        <p class="PrizeRarity-SkinName"> Shuffle</p>
+                    </div>
+                </div>
+                
+                </div>
+                      </div>
+                
+                </div>
+                
+                <div class="OpenCaseButtonContainer">
+                    <button class="Open-Button">Open</button>
+                </div>
+                
+                <div class="CaseItemsContainer">
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                    <div class="SkinItem">
+                        <div class="PrizeIMG-Chance">
+                           <img src="">
+                        </div>
+                        <div class="PrizeRarity-Chance">
+                            <p class="SkinItem-Chance-Weapon">MP7</p>
+                            <p class="SkinItem-Chance-SkinName"> Shuffle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="PrizeContainer">
+                    
+                    <div class="PrizeContainerName">M4A1-S | Chantico's Fire</div>
+                    <div class="PrizeContainerIMG">
+                        <img src="" alt="">
+                    </div>
+                    <div class="PrizeContainerContinue">
+                        <p>You got a new Item!</p>
+                        <button class="ContinueButton">Continue</button>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+
         </div>
 
-        <div class="CaseListContainer" style="display: flex;">
-            <div class="CasesGrid">
-                
-        
-            </div>
+        <div class="CaseListContainer" style="display: none;">
+            
 
-          <div class="OpeningCaseContainer">
-        
-            <div class="OpeningContainer">
-            <div class="ViewPort">
-            
-                <div class="ViewPortGradient"></div>
-                <div class="ViewPortLightGradient"></div>
-                <div class="Arrows"></div>
-            <div class="Case-Container">
-            
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="Case-Card">
-                    <div class="PrizeIMG">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-               <div class="Case-Card Winner_Card">
-               
-                    <div class="PrizeIMG">
-                        <img src="">
-                    </div>
-                    <div class="PrizeRarity">
-                        <p class="PrizeRarity-Weapon">MP7</p>
-                        <p class="PrizeRarity-SkinName"> Shuffle</p>
-                    </div>
-               
-               </div>
-              
-               <div class="Case-Card">
-                <div class="PrizeIMG">
-                   <img src="">
-                </div>
-                <div class="PrizeRarity">
-                    <p class="PrizeRarity-Weapon">MP7</p>
-                    <p class="PrizeRarity-SkinName"> Shuffle</p>
-                </div>
-            </div>
-            <div class="Case-Card">
-                <div class="PrizeIMG">
-                   <img src="">
-                </div>
-                <div class="PrizeRarity">
-                    <p class="PrizeRarity-Weapon">MP7</p>
-                    <p class="PrizeRarity-SkinName"> Shuffle</p>
-                </div>
-            </div>
-            <div class="Case-Card">
-                <div class="PrizeIMG">
-                   <img src="">
-                </div>
-                <div class="PrizeRarity">
-                    <p class="PrizeRarity-Weapon">MP7</p>
-                    <p class="PrizeRarity-SkinName"> Shuffle</p>
-                </div>
-            </div>
-            
-            </div>
-                  </div>
-            
-            </div>
-            
-            <div class="OpenCaseButtonContainer">
-                <button class="Open-Button">Open</button>
-            </div>
-            
-            <div class="CaseItemsContainer">
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-                <div class="SkinItem">
-                    <div class="PrizeIMG-Chance">
-                       <img src="">
-                    </div>
-                    <div class="PrizeRarity-Chance">
-                        <p class="SkinItem-Chance-Weapon">MP7</p>
-                        <p class="SkinItem-Chance-SkinName"> Shuffle</p>
-                    </div>
-                </div>
-            </div>
-            <div class="PrizeContainer">
-                
-                <div class="PrizeContainerName">M4A1-S | Chantico's Fire</div>
-                <div class="PrizeContainerIMG">
-                    <img src="" alt="">
-                </div>
-                <div class="PrizeContainerContinue">
-                    <p>You got a new Item!</p>
-                    <button class="ContinueButton">Continue</button>
-                </div>
-            </div>
-            
-            </div>
+         
+
         </div>
 
         
@@ -560,10 +570,10 @@
 
 
 
-
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" ></script>
      <script type="module" src="JavaScript/Header.js"></script>
      <script type="module" src="JavaScript/CaseData.js"></script>
-     <script type="module" src="JavaScript/game.js"></script>
+     <script type="module" src="JavaScript/Case_Handler.js"></script>
      <script type="module" src="JavaScript/Inventory_LS.js"></script>
     
     </body>

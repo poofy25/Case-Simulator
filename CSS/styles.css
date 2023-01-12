@@ -26,92 +26,7 @@ box-sizing: border-box;
   justify-content: start;
   align-items:center;
   flex-direction: column;
-   display: flex;
-}
-
-.CasesGrid{
-    height: 100%;
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0.2vw;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    padding: 2vw;
-}
-.CasesGrid::-webkit-scrollbar {
-    width:2px;
-    padding: 0;
-  }
-  
- 
-  .CasesGrid::-webkit-scrollbar-track { 
-    padding: 0;
-  }
-   
- 
-  .CasesGrid::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0,0.4); 
-    border-radius: 50%;
-    padding: 0;
-  }
-  
-  
-  .CasesGrid::-webkit-scrollbar-thumb:hover {
-    background: transparent; 
-    padding: 0;
-  }
-.CasesGrid_Case{
-    box-sizing: border-box;
-    display: inline-flex;
-    width:  8vw;
-    aspect-ratio: 9/8.25;
-    border: 1px solid rgb(75, 75, 75);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    color: white;
-    font-family: 'DownloadedFont';
-    font-size: 12px;
-    cursor: pointer;
-    background-color: gray;
-    box-shadow: rgba(6, 24, 44, 0.2) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
-.CasesGrid_Case_IMG{
-    background-image: url(../PNGS/Item-BG.png);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover;
-    width: 100%;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.CasesGrid_Case_IMG > img{
-    height: 125%;
-}
-.CasesGrid_Case_Rarity_Name{
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
-   font-size: clamp(2px,0.7vw,20px);
-    width: 100%;
-    height: 30%;
-    padding-top: 2%;
-    padding-left: 4%;
-    padding-right: 4%;
-    background: linear-gradient(90deg, rgba(184, 184, 184, 0.4) 0%, rgba(59,59,59,0.5) 90%);
-    text-align: start;
-    text-shadow: 2px 2px 0.5px rgba(0, 0, 0,0.5);
-    border-top: 1px solid rgba(128, 128, 128,0.5);
-    box-sizing: border-box;
-    font-family: 'Mitr-Regular';
+   display: none;
 }
 
 
@@ -130,7 +45,7 @@ box-sizing: border-box;
   align-items:center;
   flex-direction: column;
    display: none;
-   position: relative;
+   position: absolute;
 }
 .OpeningContainer{
     background-color: rgb(12, 21, 28);
