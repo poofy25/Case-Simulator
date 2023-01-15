@@ -3,8 +3,8 @@ display: grid;
 width: 80vw;
 box-sizing: border-box;
 
-height: 36vw;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+height: 80vh;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 gap: 1.5vw;
 position: relative;
@@ -50,7 +50,7 @@ max-height: 100%;
 
 
 .Game_UI {
-    grid-column: span 4;
+    grid-column: span 6;
     grid-row: span 5;
     display: flex;
     justify-content: center;

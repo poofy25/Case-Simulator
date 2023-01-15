@@ -35,7 +35,6 @@ const PrizeContainerName = document.querySelector(".PrizeContainerName")
 
 //CASE LIST DOMS
 const CaseGrid = document.querySelector(".Inventory_Cases_Grid")
-const Case_Items_Container = document.querySelector(".CaseItemsContainer")
 const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer")
 
 
@@ -46,7 +45,7 @@ let OddsMultiplyingValue = 1;
 
 // INVENTORY VARIABLES
 
-import {Inventory} from './Inventory_LS.js';
+import {Update_Inventory} from './Inventory_LS.js';
 
 
 //LOADING CASES
@@ -61,63 +60,47 @@ for (let i in CaseData){
 }
 
 
-
-
-
-
-
-
 //CALLING THE FUNCTION WHEN A CASE IS SELECTED
- function appFunction (CaseNumber) {
+ function Open_Case_Function (CaseNumber) {
 
-    let CurrentCase = CaseData[CaseNumber].content
+    let Current_Case_Data = CaseData[CaseNumber].content
     let CollectionName = CaseData[CaseNumber].name
-console.log(CollectionName)
+    console.log(CollectionName)
 
    //CARD WIDTH
     const CardWidth = Winner_Card.offsetWidth;
 
 
 //LOADING CASE SKINS
-function loadChanceSkins () {
-
+function Load_Case_Skins () {
 
 var TotalSkins = 0;
 
 //NAMING AND STYLING EACH CARD
 for (let i = 0 ; i < 1 ; i++){
 
-    for (let i = 0 ; i < CurrentCase['Mil-Spec Skins'].length; i++){
+ function Styling_Skin_Card_Function (Skin_Rarity_Name , index , background_Color){
+   
         TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Mil-Spec Skins'][i].wears)[0]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(61,87,195)`
-        let NameArray = CurrentCase['Mil-Spec Skins'][i].name.split("|");
+
+        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(Current_Case_Data[Skin_Rarity_Name][index].wears)[0]
+        let NameArray = Current_Case_Data[Skin_Rarity_Name][index].name.split("|");
         ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
         ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
+        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = background_Color
+    
+ }
+    for (let i = 0 ; i < Current_Case_Data['Mil-Spec Skins'].length; i++){
+        Styling_Skin_Card_Function('Mil-Spec Skins' , i , `rgb(61,87,195)`)
     }
-    for (let i = 0 ; i < CurrentCase['Restricted Skins'].length; i++){
-        TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Restricted Skins'][i].wears)[0]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(107,72,195)`
-        let NameArray = CurrentCase['Restricted Skins'][i].name.split("|");
-        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
-        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
+    for (let i = 0 ; i < Current_Case_Data['Restricted Skins'].length; i++){
+        Styling_Skin_Card_Function('Restricted Skins' , i , `rgb(107,72,195)`)
     }
-    for (let i = 0 ; i < CurrentCase['Classified Skins'].length; i++){
-        TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Classified Skins'][i].wears)[0]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(166, 60, 174)`
-        let NameArray = CurrentCase['Classified Skins'][i].name.split("|");
-        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
-        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
+    for (let i = 0 ; i < Current_Case_Data['Classified Skins'].length; i++){
+        Styling_Skin_Card_Function('Classified Skins' , i , `rgb(166, 60, 174)`)
     }
-    for (let i = 0 ; i < CurrentCase['Covert Skins'].length; i++){
-        TotalSkins = TotalSkins + 1
-        ChanceCardsPrizeIMG[TotalSkins-1].src = Object.values(CurrentCase['Covert Skins'][i].wears)[0]
-        ChanceCardsRarityDOM[TotalSkins-1].style.backgroundColor = `rgb(181,73,64)`
-        let NameArray = CurrentCase['Covert Skins'][i].name.split("|");
-        ChanceCardsRarityWeaponName[TotalSkins-1].textContent = NameArray[0]
-        ChanceCardsRaritySkinName[TotalSkins-1].textContent = NameArray[1]
+    for (let i = 0 ; i < Current_Case_Data['Covert Skins'].length; i++){
+        Styling_Skin_Card_Function('Covert Skins' , i , `rgb(181,73,64)`)
     }
     for (let i = 0 ; i < 1; i++){
         TotalSkins = TotalSkins + 1
@@ -129,17 +112,14 @@ for (let i = 0 ; i < 1 ; i++){
 }
 //REMOVING UNNEEDED CARDS
 for (let i = 0 ; i < ChanceSkins.length ; i++){
-    if (i >= TotalSkins){
-        ChanceSkins[i].style.display = `none`
-    }
-    if (i < TotalSkins){
-        ChanceSkins[i].style.display = `block`
-    }
+    if (i >= TotalSkins) ChanceSkins[i].style.display = `none`
+    
+    if (i < TotalSkins) ChanceSkins[i].style.display = `block`
 
  }
 
 }
-loadChanceSkins()
+Load_Case_Skins()
 
 
 
@@ -155,7 +135,13 @@ const RaritiesArray = [
     "Covert",
     "Rare Special Item"
 ]
-
+const Current_Case_Data_Rarities = [
+    "Mil-Spec Skins",
+    "Restricted Skins",
+    "Classified Skins",
+    "Covert Skins",
+    "Rare Special Items"
+]
 let Random_MilSpec_Item;
 let Random_Restricted_Item;
 let Random_Classified_Item;
@@ -179,80 +165,74 @@ const MinOdds = 0;
 
 
     RandomRarityNumber = Math.floor(Math.random() * 10000) + 1;
-    if (RandomRarityNumber > BlueOdds * OddsMultiplyingValue && RandomRarityNumber <= MaxOdds){
-        CurrentRarity = RaritiesArray[0]
-    } else if (RandomRarityNumber > PurpleOdds * OddsMultiplyingValue && RandomRarityNumber <= BlueOdds * OddsMultiplyingValue){
-        CurrentRarity = RaritiesArray[1]
-    } else if (RandomRarityNumber > PinkOdds * OddsMultiplyingValue && RandomRarityNumber <= PurpleOdds * OddsMultiplyingValue){
-        CurrentRarity = RaritiesArray[2]
-    } else if (RandomRarityNumber > RedOdds * OddsMultiplyingValue && RandomRarityNumber <= PinkOdds * OddsMultiplyingValue){
-        CurrentRarity = RaritiesArray[3]
-    } else if (RandomRarityNumber > MinOdds && RandomRarityNumber <= RedOdds * OddsMultiplyingValue){
-        CurrentRarity = RaritiesArray[4]
-    }
+    if (RandomRarityNumber > BlueOdds * OddsMultiplyingValue && RandomRarityNumber <= MaxOdds) return CurrentRarity = RaritiesArray[0]
+    if (RandomRarityNumber > PurpleOdds * OddsMultiplyingValue && RandomRarityNumber <= BlueOdds * OddsMultiplyingValue) return CurrentRarity = RaritiesArray[1]
+    if (RandomRarityNumber > PinkOdds * OddsMultiplyingValue && RandomRarityNumber <= PurpleOdds * OddsMultiplyingValue) return  CurrentRarity = RaritiesArray[2]
+    if (RandomRarityNumber > RedOdds * OddsMultiplyingValue && RandomRarityNumber <= PinkOdds * OddsMultiplyingValue) return CurrentRarity = RaritiesArray[3]
+    if (RandomRarityNumber > MinOdds && RandomRarityNumber <= RedOdds * OddsMultiplyingValue) return CurrentRarity = RaritiesArray[4]
+        
+    
 
 }
 
 
 
 //STATTRACK ITEM FUNCTION
-let StatTrack;
 function StatTrackFunction (SkinName){
-
 let StatTrackRandomNumber = Math.floor(Math.random() * 10) + 1;
-if (StatTrackRandomNumber == 1){
-  
-    SkinName.textContent = "StatTrack™ " + SkinName.textContent
-    
+
+SkinName.parentElement.parentElement.StatTrack = "false";
+if (StatTrackRandomNumber == 1) {
+    SkinName.parentElement.parentElement.StatTrack = "true"
+    if (CurrentRarity == RaritiesArray[4]) return ;
+SkinName.textContent = "StatTrack™ "  +  SkinName.textContent;
 }
-
-
 }
 
 //SETTING CARDS STYLE IN CASE ROLLERCOSTER
 function setPrizeStyles(index , PrizeImage , PrizeRarity){
     //RANDOM ITEM FROM THE LENGHT OF RARITY IN A CASE
-    Random_MilSpec_Item = Math.floor(Math.random() * CurrentCase['Mil-Spec Skins'].length);
-    Random_Restricted_Item = Math.floor(Math.random() * CurrentCase['Restricted Skins'].length);
-    Random_Classified_Item = Math.floor(Math.random() * CurrentCase['Classified Skins'].length)
-    Random_Covert_Item = Math.floor(Math.random() * CurrentCase['Covert Skins'].length);
+    Random_MilSpec_Item = Math.floor(Math.random() * Current_Case_Data['Mil-Spec Skins'].length);
+    Random_Restricted_Item = Math.floor(Math.random() * Current_Case_Data['Restricted Skins'].length);
+    Random_Classified_Item = Math.floor(Math.random() * Current_Case_Data['Classified Skins'].length)
+    Random_Covert_Item = Math.floor(Math.random() * Current_Case_Data['Covert Skins'].length);
     
 //CARD NAME DOMS
 const PrizeRarity_Weapon = document.querySelectorAll(".PrizeRarity-Weapon")
 const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
 //SETTING STYLES
-let NameArray = [];
-    
-if (CurrentRarity == RaritiesArray[0]) {
-    NameArray = CurrentCase['Mil-Spec Skins'][Random_MilSpec_Item].name.split("|");
-    PrizeRarity.style.backgroundColor = `rgb(61,87,195)`
-    PrizeImage.src = Object.values(CurrentCase['Mil-Spec Skins'][Random_MilSpec_Item].wears)[0]
-} else if (CurrentRarity == RaritiesArray[1]) {
-    NameArray = CurrentCase['Restricted Skins'][Random_Restricted_Item].name.split("|");
-    PrizeRarity.style.backgroundColor = `rgb(107,72,195)`
-    PrizeImage.src = Object.values(CurrentCase['Restricted Skins'][Random_Restricted_Item].wears)[0]
-} else if (CurrentRarity == RaritiesArray[2]) {
-    NameArray = CurrentCase['Classified Skins'][Random_Classified_Item].name.split("|");
-    PrizeRarity.style.backgroundColor = `rgb(166, 60, 174)`
-    PrizeImage.src = Object.values(CurrentCase['Classified Skins'][Random_Classified_Item].wears)[0]
-} else if (CurrentRarity == RaritiesArray[3]) {
-    NameArray = CurrentCase['Covert Skins'][Random_Covert_Item].name.split("|");
-    PrizeRarity.style.backgroundColor = `rgb(181,73,64)`
-    PrizeImage.src = Object.values(CurrentCase['Covert Skins'][Random_Covert_Item].wears)[0]
+let STT_Skin_Rarity ;
+let STT_Random_Item_Index;
+function Styling_Card (Skin_Rarity , background_Color , Random_Item_Index){
+   let NameArray = Current_Case_Data[Skin_Rarity][Random_Item_Index].name.split("|");
+    PrizeRarity.style.backgroundColor = background_Color 
+    PrizeImage.src = Object.values(Current_Case_Data[Skin_Rarity][Random_Item_Index].wears)[0]
+    PrizeRarity_Weapon[index].textContent = NameArray[0];
+    PrizeRarity_SkinName[index].textContent = NameArray[1];
+    STT_Skin_Rarity = Skin_Rarity
+    STT_Random_Item_Index = Random_Item_Index
 }
-PrizeRarity_Weapon[index].textContent = NameArray[0];
-PrizeRarity_SkinName[index].textContent = NameArray[1];
+
+for (let i = 0; i < 1; i++){
+if (CurrentRarity == RaritiesArray[0])  Styling_Card(Current_Case_Data_Rarities[0] , `rgb(61,87,195)` , Random_MilSpec_Item);
+if (CurrentRarity == RaritiesArray[1])  Styling_Card(Current_Case_Data_Rarities[1] , `rgb(107,72,195)` , Random_Restricted_Item);
+if (CurrentRarity == RaritiesArray[2])  Styling_Card(Current_Case_Data_Rarities[2] , `rgb(166, 60, 174)` , Random_Classified_Item);
+if (CurrentRarity == RaritiesArray[3])  Styling_Card(Current_Case_Data_Rarities[3] , `rgb(181,73,64)` , Random_Covert_Item);
 if (CurrentRarity == RaritiesArray[4]) {
-    //NameArray = CurrentCase['Rare Special Items'][i].name.split("|");
+
     PrizeRarity.style.backgroundColor = `rgb(199,160,9)`
     PrizeImage.src = "PNGS/Yellow_Special_Item.png"
     PrizeRarity_Weapon[index].textContent = "★Rare Special Item★"
+    PrizeRarity_SkinName[index].textContent = "";
+}
 }
 
-
-
 //CALLING STATTRACK FUNCTION
+
 StatTrackFunction(PrizeRarity_Weapon[index]);
+
+
+
 }
 
 //CASE ROLLERCOSTER ANIMATION FUNCTION
@@ -265,11 +245,11 @@ function CardRollAnimation(){
    for (let i = 0 ; i < Cards.length ; i++){
 
     RandomRarityFunction()
-    setPrizeStyles(i,CardsPrizeIMG[i] , CardsRarityDOM[i])
+    setPrizeStyles( i , CardsPrizeIMG[i] , CardsRarityDOM[i] )
 
     //IF THE CARD IS THE WINNING ONE
        if (Cards[i] == Winner_Card){
-
+        
            Winner_Card.Rarity = CurrentRarity
            console.log("Cards Rarity is :" + CurrentRarity + " " + RandomRarityNumber)
            let Winner_Card_Name_Array
@@ -290,13 +270,19 @@ function CardRollAnimation(){
                rgba(255,255,255,0) 4px,
                rgba(255, 255, 255, 0) 4.5px
              )`
-               } else {
-                console.log("haha")
-                console.log()
-                let RandomKnife = Math.floor(Math.random() * CurrentCase['Rare Special Items'].length);
-                PrizeContainerIMG.src = Object.values(CurrentCase['Rare Special Items'][RandomKnife].wears)[0];
-                Winner_Card_Name_Array = CurrentCase['Rare Special Items'][RandomKnife].name;
-                ItemName = Winner_Card_Name_Array;
+            } else {
+                console.log(Winner_Card.StatTrack)
+                let RandomKnife = Math.floor(Math.random() * Current_Case_Data['Rare Special Items'].length);
+                PrizeContainerIMG.src = Object.values(Current_Case_Data['Rare Special Items'][RandomKnife].wears)[0];
+                Winner_Card_Name_Array = Current_Case_Data['Rare Special Items'][RandomKnife].name.replace("★ ", "");
+                if (Winner_Card.StatTrack === "true"){
+                    ItemName = "★ StatTrack™ " + Winner_Card_Name_Array;
+                    console.log(ItemName)
+                } else {
+                    ItemName = "★ "  + Winner_Card_Name_Array;
+                    console.log(ItemName)
+                }
+                
                 PrizeContainerName.textContent = ItemName;
      
                 W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
@@ -321,6 +307,7 @@ function CardRollAnimation(){
                         name: ItemName,
                         png:PrizeContainerIMG.src,
                         Rarity: Winner_Card.Rarity,
+                        StatTrack:Winner_Card.StatTrack,
                         CollectionName: CollectionName
                             }
                 
@@ -346,7 +333,7 @@ function CardRollAnimation(){
 
                 //UPDATE THE INVENTORY
                     localStorage.setItem(`Inventory_Items`, Item_serialized)
-                    Inventory();
+                    Update_Inventory();
                   }
     SaveItem()
 
@@ -362,6 +349,7 @@ function CardRollAnimation(){
     CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/14*23 + RandomPixel)}px)`
 
    }
+   
 CardRollAnimation()
 }
  
@@ -431,12 +419,10 @@ OpenButton.onclick = () =>{
 OpenButtonFunction()
 }
 
- }
+}
 
 
 
-
-const CaseGrid_Case = document.querySelectorAll(".CasesGrid_Case")
 //CHOSING A CASE FROM THE CASE GRID
 for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
     
@@ -463,7 +449,7 @@ for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
         setTimeout(() =>{  ChanceSkins.forEach(addAnimation)}, 100)
       
         OpeningCaseContainer.style.display = `flex`
-        appFunction(i)
+        Open_Case_Function(i)
         
     }
 }
