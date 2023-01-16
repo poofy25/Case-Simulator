@@ -70,7 +70,13 @@ for (let i in CaseData){
    //CARD WIDTH
     const CardWidth = Winner_Card.offsetWidth;
 
-
+    let RandomKnife;
+    let STT_Skin_Rarity ;
+let STT_Random_Item_Index;
+    function Random_Knife_Function(){
+    RandomKnife = Math.floor(Math.random() * Current_Case_Data['Rare Special Items'].length);
+    console.log(RandomKnife)
+    }
 //LOADING CASE SKINS
 function Load_Case_Skins () {
 
@@ -148,7 +154,6 @@ let Random_Classified_Item;
 let Random_Covert_Item;
 
 
-
 //ODDS FUNCTION 
 
 function RandomRarityFunction() {
@@ -201,8 +206,7 @@ function setPrizeStyles(index , PrizeImage , PrizeRarity){
 const PrizeRarity_Weapon = document.querySelectorAll(".PrizeRarity-Weapon")
 const PrizeRarity_SkinName = document.querySelectorAll(".PrizeRarity-SkinName")
 //SETTING STYLES
-let STT_Skin_Rarity ;
-let STT_Random_Item_Index;
+
 function Styling_Card (Skin_Rarity , background_Color , Random_Item_Index){
    let NameArray = Current_Case_Data[Skin_Rarity][Random_Item_Index].name.split("|");
     PrizeRarity.style.backgroundColor = background_Color 
@@ -224,6 +228,7 @@ if (CurrentRarity == RaritiesArray[4]) {
     PrizeImage.src = "PNGS/Yellow_Special_Item.png"
     PrizeRarity_Weapon[index].textContent = "★Rare Special Item★"
     PrizeRarity_SkinName[index].textContent = "";
+    STT_Skin_Rarity = "Rare Special Items"
 }
 }
 
@@ -271,8 +276,11 @@ function CardRollAnimation(){
                rgba(255, 255, 255, 0) 4.5px
              )`
             } else {
-                console.log(Winner_Card.StatTrack)
-                let RandomKnife = Math.floor(Math.random() * Current_Case_Data['Rare Special Items'].length);
+                Random_Knife_Function()
+if (Current_Case_Data['Rare Special Items'][RandomKnife].can_be_stattrak === false){
+    Winner_Card.StatTrack = "false"
+    console.log("GAY")
+}
                 PrizeContainerIMG.src = Object.values(Current_Case_Data['Rare Special Items'][RandomKnife].wears)[0];
                 Winner_Card_Name_Array = Current_Case_Data['Rare Special Items'][RandomKnife].name.replace("★ ", "");
                 if (Winner_Card.StatTrack === "true"){

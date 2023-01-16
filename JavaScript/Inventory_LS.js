@@ -27,9 +27,11 @@ for (let i in Current_Inventory){
     let ItemNameArray = (Current_Inventory[i].name).split(" | ")
     Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
 
-
-
-    Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
+    let WeaponItemName = ItemNameArray[0]
+    if (ItemNameArray[0].length > 19){
+          WeaponItemName = WeaponItemName.slice(0, 19) + "..."
+    }
+    Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = WeaponItemName
     Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
 
     if (Current_Inventory[i].Rarity == Rarity_Array[0]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
@@ -59,8 +61,11 @@ function Update_Inventory (){
         
             let ItemNameArray = (Current_Inventory[i].name).split(" | ")
             Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
-            
-            Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = ItemNameArray[0]
+            let WeaponItemName = ItemNameArray[0]
+            if (ItemNameArray[0].length > 18){
+                  WeaponItemName = WeaponItemName.slice(0, 18) + "..."
+            }
+            Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = WeaponItemName
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
 
             if (Current_Inventory[i].Rarity == Rarity_Array[0]) Inventory_Item_Rarity.style.backgroundColor = Rarity_Colors[0];
@@ -81,9 +86,11 @@ Show_Inventory();
 export { Update_Inventory };
 
 
+let Inventory_Skins = document.querySelectorAll(".Inventory_Item")
 
 const Inventory_Selector_Buttons = document.querySelectorAll(".Inventory-Selector button")
 for (let i = 0 ; i < Inventory_Selector_Buttons.length ; i ++) {
+    Inventory_Skins = document.querySelectorAll(".Inventory_Item")
     Inventory_Selector_Buttons[i].onclick = () =>{
         Inventory_Selector_Buttons[i].classList.add("Inventory-Selector-Button-Active")
 
@@ -103,7 +110,6 @@ for (let i = 0 ; i < Inventory_Selector_Buttons.length ; i ++) {
     }
 }
 
-const Inventory_Skins = document.querySelectorAll(".Inventory_Item")
 
 for (let i = 0 ; i < Inventory_Skins.length; i++){
     Inventory_Skins[i].addEventListener("mouseenter", () => {

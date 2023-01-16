@@ -74,6 +74,8 @@ align-items: center;
         padding: 0;
         padding-top: 0.5vh;
         padding-bottom: 0.5vh;
+        padding-left: 0.25vw;
+        padding-right: 0.25vw;
         margin-top: 2vh;
 }
 
@@ -136,7 +138,9 @@ align-items: center;
     align-items: center;
 }
 .Inventory_Item_IMG > img {
-    width: 80%;
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down;
 }
 
 .Inventory_Item_Rarity{
@@ -161,14 +165,18 @@ align-items: center;
 }
 
 .Inventory_Item_Weapon{
-    text-align: center;
+    text-align: start;
     font-family: 'Mitr-Medium';
-    font-size: clamp(2px,0.50vw,20px);
+    font-size: clamp(2px,0.675vw,20px);
+    height: 50%;
+    line-clamp: 1;
 }
 .Inventory_Item_Skin {
     text-align: center;
     font-family: 'Mitr-Light';
-    font-size: clamp(2px,0.555vw,20px);
+    font-size: clamp(2px,0.65vw,20px);
+    height: 50%;
+  
 }
 
 
@@ -207,6 +215,8 @@ align-items: center;
       padding: 0;
       padding-top: 0.5vh;
       padding-bottom: 0.5vh;
+      padding-left: 0.25vw;
+      padding-right: 0.25vw;
       margin-top: 2vh;
 }
 .Inventory_Cases_Grid::-webkit-scrollbar {
@@ -261,7 +271,9 @@ align-items: center;
 }
 
 .CasesGrid_Case_IMG > img{
-  width: 70%;
+  width: 130%;
+    height: 130%;
+    object-fit:scale-down;
 }
 .CasesGrid_Case_Rarity_Name{
 
@@ -281,7 +293,7 @@ align-items: center;
     
     align-items: flex-start;
     color: white;
-    font-size: clamp(2px,0.7vw,20px);
+    font-size: clamp(2px,0.675vw,20px);
     width: 100%;
     height: 30%;
     padding-left: 7%;
