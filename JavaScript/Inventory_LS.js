@@ -62,8 +62,8 @@ function Update_Inventory (){
             let ItemNameArray = (Current_Inventory[i].name).split(" | ")
             Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
             let WeaponItemName = ItemNameArray[0]
-            if (ItemNameArray[0].length > 18){
-                  WeaponItemName = WeaponItemName.slice(0, 18) + "..."
+            if (ItemNameArray[0].length > 19){
+                  WeaponItemName = WeaponItemName.slice(0, 19) + "..."
             }
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = WeaponItemName
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]

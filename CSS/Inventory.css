@@ -46,6 +46,7 @@ align-items: center;
   color: rgb(138,162,186);
   font-family: 'Mitr-Regular';
   cursor: pointer;
+  font-size: clamp(10px,0.9vw,40px);
 }
 
 .Inventory-Filters-Container{
