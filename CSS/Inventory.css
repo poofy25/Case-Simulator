@@ -46,7 +46,6 @@ align-items: center;
   color: rgb(138,162,186);
   font-family: 'Mitr-Regular';
   cursor: pointer;
-  font-size: clamp(10px,0.9vw,40px);
 }
 
 .Inventory-Filters-Container{
@@ -305,4 +304,27 @@ align-items: center;
     background: linear-gradient(90deg, rgba(184, 184, 184, 0.4) 0%, rgba(59,59,59,0.5) 90%);
     font-family: 'Mitr-Regular';
 
+}
+
+
+
+
+
+
+
+.Inventory_Item_Info{
+  width: 15vw;
+  height: 20vw;
+  position: absolute;
+  background-color: red;
+  display: none;
+  top:0;
+  left: 0;
+  transition:transform 0.2s cubic-bezier(.02,1.23,.79,1.08);
+}
+.Inventory_Item_Info_Name{
+  width: 100%;
+  color: white;
+  font-size: clamp(10px,0.5vw,25px);
+  text-align: center;
 }

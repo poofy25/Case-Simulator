@@ -12,7 +12,7 @@ body {
 .Header_Container{
     background-color: rgba(71, 78, 85,0.75);
     width: 100%;
-    height: clamp(35px,5vh,150px);
+    height: clamp(35px,8vh,150px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;

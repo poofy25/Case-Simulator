@@ -351,10 +351,10 @@ if (Current_Case_Data['Rare Special Items'][RandomKnife].can_be_stattrak === fal
     }
 
     //GETTING A RANDOM PIXEL VALUE FROM THE CURRENT ROLLERCOSTER CARD WIDTH
-    RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/5)));
+    RandomPixel = Math.floor(Math.random() * (CardWidth - (CardWidth/10)));
     
     //MOVING THE ROLLERCOSTER
-    CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/14*21 + RandomPixel)}px)`
+    CaseCards.style.transform = `translate(-${(CardWidth*24.5 + CardWidth/14*23 + RandomPixel)}px)`
 
    }
    

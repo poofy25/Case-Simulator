@@ -62,8 +62,8 @@ function Update_Inventory (){
             let ItemNameArray = (Current_Inventory[i].name).split(" | ")
             Inventory_Item_Cloned.ItemName = Current_Inventory[i].name;
             let WeaponItemName = ItemNameArray[0]
-            if (ItemNameArray[0].length > 19){
-                  WeaponItemName = WeaponItemName.slice(0, 19) + "..."
+            if (ItemNameArray[0].length > 18){
+                  WeaponItemName = WeaponItemName.slice(0, 18) + "..."
             }
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Weapon").textContent = WeaponItemName
             Inventory_Item_Rarity.querySelector(".Inventory_Item_Skin").textContent = ItemNameArray[1]
@@ -109,13 +109,47 @@ for (let i = 0 ; i < Inventory_Selector_Buttons.length ; i ++) {
         }
     }
 }
+const Inventory_Item_Info = document.querySelector(".Inventory_Item_Info")
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutationRecord) {
+   
+Inventory_Skins = document.querySelectorAll(".Inventory_Item")
+let x;
+let y;
+Inventory_Skins.forEach(function (i){
+    i.onmouseenter = function(){
+        console.log(i.ItemName)
+        Inventory_Item_Info.style.display = "flex"
+        var offset = i.parentNode.getBoundingClientRect(); 
+        let newPosX = x - offset.left + 50
+        let newPosY = y - offset.top
+        console.log(newPosX,newPosY)
+        //nventory_Item_Info.style.left = newPosX + `px`
+        //Inventory_Item_Info.style.top = newPosY + `px`
+        document.querySelector(".Inventory_Item_Info_Name").textContent = i.ItemName
+        Inventory_Item_Info.style.transform = `translate3d(${newPosX}px , ${newPosY}px , 0px)`
+    }
+    i.onmouseleave = function(){
+        Inventory_Item_Info.style.display = "none"
+    }
+    document.onmousemove = function(e){
+        x = e.clientX;
+        y = e.clientY;
+    }
+})
 
 
-for (let i = 0 ; i < Inventory_Skins.length; i++){
-    Inventory_Skins[i].addEventListener("mouseenter", () => {
-        console.log(Inventory_Skins[i].ItemName)
-    });
-}
+
+
+
+    });    
+});
+
+observer.observe(Inventory_Grid, { attributes : true, attributeFilter : ['style'] , subtree: true});
+
+
+
+
 
 
 

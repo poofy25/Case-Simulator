@@ -3,8 +3,7 @@ display: grid;
 width: 80vw;
 box-sizing: border-box;
 
-height: 75vh;
-max-height: 1200px;
+height: 80vh;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 gap: 1.5vw;
