@@ -215,6 +215,11 @@ function Styling_Card (Skin_Rarity , background_Color , Random_Item_Index){
     PrizeRarity_SkinName[index].textContent = NameArray[1];
     STT_Skin_Rarity = Skin_Rarity
     STT_Random_Item_Index = Random_Item_Index
+   // console.log(Current_Case_Data[Skin_Rarity][Random_Item_Index].desc)
+  // console.log(PrizeRarity_Weapon[index].parentNode.parentNode)
+    if (PrizeRarity_Weapon[index].parentNode.parentNode === Winner_Card){
+        PrizeRarity_Weapon[index].parentNode.parentNode.Item_Description = Current_Case_Data[Skin_Rarity][Random_Item_Index].desc
+    }
 }
 
 for (let i = 0; i < 1; i++){
@@ -290,7 +295,7 @@ if (Current_Case_Data['Rare Special Items'][RandomKnife].can_be_stattrak === fal
                     ItemName = "★ "  + Winner_Card_Name_Array;
                     console.log(ItemName)
                 }
-                
+                Winner_Card.Item_Description = Current_Case_Data['Rare Special Items'][RandomKnife].desc
                 PrizeContainerName.textContent = ItemName;
      
                 W_RGB = Winner_Card_Name.style.backgroundColor.split(/[\s,()]+/)
@@ -316,7 +321,9 @@ if (Current_Case_Data['Rare Special Items'][RandomKnife].can_be_stattrak === fal
                         png:PrizeContainerIMG.src,
                         Rarity: Winner_Card.Rarity,
                         StatTrack:Winner_Card.StatTrack,
-                        CollectionName: CollectionName
+                        Collection_Name: CollectionName,
+                        Description: Winner_Card.Item_Description
+
                             }
                 
                         
