@@ -450,8 +450,8 @@ for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
            ChanceSkins.forEach(removeAnimation)
         }
 
-
-
+        OpeningCaseContainer.style.display = `flex`
+        Open_Case_Function(i)
         CaseGrid.style.display = `none`
         let time = 0;
         function addAnimation (item){
@@ -463,8 +463,8 @@ for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
         }
         setTimeout(() =>{  ChanceSkins.forEach(addAnimation)}, 100)
       
-        OpeningCaseContainer.style.display = `flex`
-        Open_Case_Function(i)
+        
+        
         
     }
 }

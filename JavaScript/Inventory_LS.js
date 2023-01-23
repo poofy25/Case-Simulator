@@ -289,18 +289,9 @@ var observer = new MutationObserver(function (mutations) {
           }
         }
         let Total_Collection_Skins = 0;
-        for (
-          let SkinRarityIndex = 0;
-          SkinRarityIndex < Case_Rarity_Skins_Array.length;
-          SkinRarityIndex++
-        ) {
-          for (
-            let SkinIndex = 0;
-            SkinIndex < Case_Rarity_Skins_Array[SkinRarityIndex].length;
-            SkinIndex++
-          ) {
+        for (let SkinRarityIndex = 0; SkinRarityIndex < Case_Rarity_Skins_Array.length; SkinRarityIndex++) {
+          for (let SkinIndex = 0; SkinIndex < Case_Rarity_Skins_Array[SkinRarityIndex].length; SkinIndex++) {
             Total_Collection_Skins += 1;
-            //console.log(Total_Collection_Skins)
           }
         }
 
@@ -313,13 +304,10 @@ var observer = new MutationObserver(function (mutations) {
             Total_Collection_Skins - 8
           } more item...`;
         }
-        Inventory_Item_Info_Collection_Container.children[9].textContent =
-          "or a Rare Special Item";
+        Inventory_Item_Info_Collection_Container.children[9].textContent = "or a Rare Special Item";
 
         function setBackgroundRarityColor(Color) {
-          Inventory_Item_Info_Rarity.style.background = `linear-gradient(90deg,rgba(100, 100, 100,0.01) 0%, ${Color} 20%, ${Color} 80% , rgba(0, 0, 0,0.01) 100%)
-    
-             `;
+          Inventory_Item_Info_Rarity.style.background = `linear-gradient(90deg,rgba(100, 100, 100,0.01) 0%, ${Color} 20%, ${Color} 80% , rgba(0, 0, 0,0.01) 100%)`;
         }
         if (Item.Rarity == Rarity_Array[0])
           setBackgroundRarityColor(Rarity_Colors[0]);
@@ -355,7 +343,7 @@ var observer = new MutationObserver(function (mutations) {
           if (debounce === false) {
          
             debounce = true;
-           position_Inventory_Item_Buttons_Function();
+            position_Inventory_Item_Buttons_Function();
 
           } else {
 
