@@ -418,7 +418,7 @@ z-index: 100;
 
 
 .Inventory_Item_Buttons{
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
