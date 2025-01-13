@@ -1,4 +1,15 @@
-import { CaseData } from "./CaseData.js";
+import { loadCaseData } from './CaseData.js';
+
+let caseData = [];
+
+async function initializeInventory() {
+  try {
+    caseData = await loadCaseData();
+    Show_Inventory();
+  } catch (error) {
+    console.error('Failed to initialize inventory:', error);
+  }
+}
 
 const Inventory_Grid = document.querySelector(".Inventory_Skins_Grid");
 const Inventory_Cases_Grid = document.querySelector(".Inventory_Cases_Grid");
@@ -108,7 +119,9 @@ function Update_Inventory() {
     }
   }
 }
-Show_Inventory();
+
+initializeInventory();
+
 export { Update_Inventory };
 
 let Inventory_Skins = document.querySelectorAll(".Inventory_Item");
@@ -244,7 +257,7 @@ var observer = new MutationObserver(function (mutations) {
         Inventory_Item_Info_Rarity.textContent = Item.Rarity;
 
         let Case_Rarity_Skins_Array = [];
-        CaseData.forEach(function (Case) {
+        caseData.forEach(function (Case) {
           if (Case.name === Item.Collection_Name) {
             for (const key in Case.content) {
               if (Case.content[key].length > 0 && key != "Rare Special Items") {

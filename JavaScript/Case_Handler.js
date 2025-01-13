@@ -7,8 +7,75 @@
 //Rare Special Items (Yellow/Special)
 
 
-import {CaseData} from './CaseData.js';
-console.log(CaseData)
+import { loadCaseData } from './CaseData.js';
+
+let caseData = [];
+
+// Initialize case data before setting up handlers
+async function initializeCaseHandler() {
+  try {
+    caseData = await loadCaseData();
+    console.log('Cases loaded:', caseData.length);
+    setupCaseGrid();
+    setupClickHandlers();
+    setupEventListeners();
+  } catch (error) {
+    console.error('Failed to initialize case handler:', error);
+  }
+}
+
+function setupCaseGrid() {
+  const CaseGrid = document.querySelector(".Inventory_Cases_Grid");
+  const CaseGrid_Case_Model = document.querySelector(".CasesGrid_Case");
+  
+  for (let i in caseData) {
+    const CaseGrid_Case_Cloned = CaseGrid_Case_Model.cloneNode(true);
+    CaseGrid.append(CaseGrid_Case_Cloned);
+    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_IMG img").src = caseData[i].image_url;
+    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_Rarity_Name").textContent = caseData[i].name;
+  }
+}
+
+function setupClickHandlers() {
+  const CaseGrid = document.querySelector(".Inventory_Cases_Grid");
+  const ChanceSkins = document.querySelectorAll(".SkinItem");
+  const OpeningCaseContainer = document.querySelector(".OpeningCaseContainer");
+
+  // Set up click handlers for each case
+  Array.from(CaseGrid.children).forEach((caseElement, i) => {
+    caseElement.onclick = () => {
+      console.log("Clicking case:", i);
+      
+      if (ChanceSkins[0]?.classList.contains("Animation")) {
+        ChanceSkins.forEach(item => item.classList.remove("Animation"));
+      }
+
+      OpeningCaseContainer.style.display = 'flex';
+      Open_Case_Function(i);
+      CaseGrid.style.display = 'none';
+
+      let time = 0;
+      const addAnimation = (item) => {
+        time += 40;
+        setTimeout(() => item.classList.add("Animation"), time);
+      };
+
+      setTimeout(() => ChanceSkins.forEach(addAnimation), 100);
+    };
+  });
+}
+
+function setupEventListeners() {
+  // ... existing event listener code but use caseData instead of CaseData
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, initializing case handler...');
+  initializeCaseHandler();
+});
+
+export { caseData };
 
 //CASE DOMS
 const OpenButton = document.querySelector(".Open-Button")
@@ -48,23 +115,11 @@ let OddsMultiplyingValue = 1;
 import {Update_Inventory} from './Inventory_LS.js';
 
 
-//LOADING CASES
-const CaseGrid_Case_Model = document.querySelector(".CasesGrid_Case")
-for (let i in CaseData){
-    var CaseGrid_Case_Cloned = CaseGrid_Case_Model.cloneNode(true)
-
-    CaseGrid.append(CaseGrid_Case_Cloned)
-
-    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_IMG img").src = CaseData[i].image_url
-    CaseGrid_Case_Cloned.querySelector(".CasesGrid_Case_Rarity_Name").textContent = CaseData[i].name
-}
-
-
 //CALLING THE FUNCTION WHEN A CASE IS SELECTED
  function Open_Case_Function (CaseNumber) {
 
-    let Current_Case_Data = CaseData[CaseNumber].content
-    let CollectionName = CaseData[CaseNumber].name
+    let Current_Case_Data = caseData[CaseNumber].content
+    let CollectionName = caseData[CaseNumber].name
     console.log(CollectionName)
 
    //CARD WIDTH
@@ -434,39 +489,6 @@ OpenButton.onclick = () =>{
 OpenButtonFunction()
 }
 
-}
-
-
-
-//CHOSING A CASE FROM THE CASE GRID
-for (let i = 0 ; i < CaseGrid.children.length ; i ++) {
-    
-    CaseGrid.children[i].onclick = () => {
-
-        if (ChanceSkins[0].classList.contains("Animation")){
-            function removeAnimation (item){
-                    item.classList.remove("Animation")
-            }
-           ChanceSkins.forEach(removeAnimation)
-        }
-
-        OpeningCaseContainer.style.display = `flex`
-        Open_Case_Function(i)
-        CaseGrid.style.display = `none`
-        let time = 0;
-        function addAnimation (item){
-            time = time + 40;
-            setTimeout(() =>{
-                item.classList.add("Animation")
-               }, time)
-         
-        }
-        setTimeout(() =>{  ChanceSkins.forEach(addAnimation)}, 100)
-      
-        
-        
-        
-    }
 }
 
 
