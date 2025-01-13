@@ -40,7 +40,7 @@ async function loadCaseData() {
   try {
     const cases = await Promise.all(
       CASE_NAMES.map(async (caseName) => {
-        const response = await fetch(`../Data/json/${caseName}.json`);
+        const response = await fetch(`/Case-Simulator/Data/json/${caseName}.json`);
         if (!response.ok) {
           throw new Error(`Failed to load ${caseName}`);
         }
